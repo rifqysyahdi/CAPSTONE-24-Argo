@@ -352,17 +352,89 @@ Tampilan sederhana dan responsif memudahkan pengguna dalam mengakses fitur utama
 ---
 #### 🚢 **Pendaftaran Kapal Baru**  
 
+
+
+Halaman Pendaftaran Kapal Baru berfungsi untuk menambahkan data kapal yang akan menggunakan layanan pelabuhan Argo. Operator dapat mengisi informasi kapal sebelum kapal masuk ke dalam proses operasional pelabuhan.
+
+Halaman ini menyediakan beberapa kolom input, yaitu:
+
+- Nama kapal
+- Jenis kapal
+- Draf kapal (m)
+- Gross tonnage
+- Waktu kedatangan
+
+Setelah data diisi dan disimpan, informasi kapal akan masuk ke dalam database dan dapat dilihat kembali pada halaman data kapal.
+
 ---
 #### 📊 **Lihat Daftar Kapal**  
+
+
+Halaman Daftar Kapal berfungsi untuk menampilkan dan memantau data kapal yang telah terdaftar dalam sistem ArgoPort Systems. Melalui halaman ini, operator dapat melihat informasi kapal serta menghapus data kapal sesuai kebutuhan operasional pelabuhan.
+
+Setiap data kapal ditampilkan dalam tabel yang berisi:
+
+- ID kapal
+- Nama kapal
+- Jenis kapal
+- Draf kapal (m)
+- Gross tonnage
+- Status kapal
+- Kedatangan
+- Waktu Sandar
+- Dermaga
 
 ---
 ### ⚓ **Penambatan Kapal**
 
+
+Halaman Penambatan Kapal berfungsi untuk mengatur dan memantau proses penempatan kapal pada dermaga yang tersedia. Operator dapat memilih kapal yang berstatus antre, kemudian menghubungkannya dengan dermaga yang masih kosong agar proses penambatan sesuai dengan ketersediaan dermaga.
+
+Pada halaman ini, operator dapat melihat informasi berupa:
+- ID kapal
+- Nama kapal
+- Jenis kapal
+- Gross tonnage
+- kedatangan
+- ID Dermaga
+- Nama Dermaga
+- Kapasitas (Ton)
+
+Setelah proses penambatan dilakukan, data penempatan kapal akan tersimpan dalam database dan status kapal serta dermaga akan diperbarui sesuai kondisi operasional.
+
 ---
 ### 🔨 **Bongkar Muat Kargo**
 
+
+
+Halaman Pengelolaan Bongkar Muat Kargo digunakan untuk mencatat data barang yang dibongkar dari kapal serta menentukan lokasi penyimpanannya di gudang. Operator dapat memilih kapal yang sedang bersandar, kemudian mengisi informasi barang dan memilih slot gudang yang tersedia.
+
+Pada halaman ini, operator dapat mengisi beberapa informasi, yaitu:
+- Nama barang
+- Berat barang (ton)
+- Volume barang (m³)
+- Kapal yang digunakan
+- Slot gudang penyimpanan
+
+Setelah data disimpan, informasi kargo akan tersimpan dalam database dan terhubung dengan data kapal serta slot gudang yang dipilih.
+
 ---
 ### 🗂️ **Kelola Data Kargo**
+
+
+
+Halaman Kelola Data Kargo digunakan oleh operator untuk melihat, memperbarui, dan menghapus data kargo yang telah terdaftar dalam sistem. Melalui halaman ini, operator dapat memantau informasi barang serta menyesuaikan data apabila terdapat perubahan.
+
+Setiap data kargo ditampilkan dalam tabel yang berisi:
+- ID kargo
+- Nama barang
+- Berat barang (ton)
+- Volume
+- Status kargo
+- ID kapal
+- ID slot gudang
+
+Operator juga dapat mengubah informasi seperti nama barang dan berat barang sesuai kondisi terbaru.
 
 ---
 
