@@ -293,6 +293,9 @@ Program ini menerapkan **library**:
 ---
 ## 📁 **Struktur Project**
 
+<img width="519" height="612" alt="image" src="https://github.com/user-attachments/assets/e0162ae1-2391-4a25-b9c7-4ff0e1fd982a" />
+
+
 ---
 ## 🧱 PENERAPAN OOP (Object-Oriented Programming)
 
