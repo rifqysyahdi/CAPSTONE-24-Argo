@@ -70,6 +70,7 @@ public class OperatorPendaftaranForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ArgoPort | Operator Workspace - Pendaftaran Kapal Baru");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlMain.setBackground(new java.awt.Color(246, 248, 251));

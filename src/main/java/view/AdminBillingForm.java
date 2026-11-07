@@ -63,6 +63,7 @@ public class AdminBillingForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ArgoPort | Admin Workspace - Billing & Pembayaran");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlMain.setBackground(new java.awt.Color(246, 248, 251));
@@ -101,6 +102,13 @@ public class AdminBillingForm extends javax.swing.JFrame {
         tblBilling.setSelectionBackground(new java.awt.Color(222, 237, 249));
         tblBilling.setSelectionForeground(new java.awt.Color(25, 53, 78));
         scrollBilling.setViewportView(tblBilling);
+        if (tblBilling.getColumnModel().getColumnCount() > 0) {
+            tblBilling.getColumnModel().getColumn(0).setResizable(false);
+            tblBilling.getColumnModel().getColumn(1).setResizable(false);
+            tblBilling.getColumnModel().getColumn(2).setResizable(false);
+            tblBilling.getColumnModel().getColumn(3).setResizable(false);
+            tblBilling.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         pnlBilling.add(scrollBilling, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 920, 400));
 
@@ -331,7 +339,7 @@ public class AdminBillingForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuBongkarMuatActionPerformed
 
     private void btnMenuKargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuKargoActionPerformed
-        bukaMenu(5);
+        bukaMenu(6);
     }//GEN-LAST:event_btnMenuKargoActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -341,7 +349,7 @@ public class AdminBillingForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnMenuKargo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuKargo1ActionPerformed
-        // TODO add your handling code here:
+        bukaMenu(5);
     }//GEN-LAST:event_btnMenuKargo1ActionPerformed
 
     private void bukaMenu(int index) {
