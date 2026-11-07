@@ -92,11 +92,7 @@ public class OperatorPenambatanForm extends javax.swing.JFrame {
         scrollAntre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(224, 231, 238)));
 
         tblAntre.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tblAntre.setGridColor(new java.awt.Color(237, 241, 245));
-        tblAntre.setRowHeight(30);
         tblAntre.setForeground(new java.awt.Color(43, 57, 73));
-        tblAntre.setSelectionBackground(new java.awt.Color(222, 237, 249));
-        tblAntre.setSelectionForeground(new java.awt.Color(25, 53, 78));
         tblAntre.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -113,6 +109,10 @@ public class OperatorPenambatanForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblAntre.setGridColor(new java.awt.Color(237, 241, 245));
+        tblAntre.setRowHeight(30);
+        tblAntre.setSelectionBackground(new java.awt.Color(222, 237, 249));
+        tblAntre.setSelectionForeground(new java.awt.Color(25, 53, 78));
         scrollAntre.setViewportView(tblAntre);
 
         pnlDocking.add(scrollAntre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 470, 380));
@@ -120,11 +120,7 @@ public class OperatorPenambatanForm extends javax.swing.JFrame {
         scrollDermagaKosong.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(224, 231, 238)));
 
         tblDermagaKosong.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tblDermagaKosong.setGridColor(new java.awt.Color(237, 241, 245));
-        tblDermagaKosong.setRowHeight(30);
         tblDermagaKosong.setForeground(new java.awt.Color(43, 57, 73));
-        tblDermagaKosong.setSelectionBackground(new java.awt.Color(222, 237, 249));
-        tblDermagaKosong.setSelectionForeground(new java.awt.Color(25, 53, 78));
         tblDermagaKosong.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -141,6 +137,10 @@ public class OperatorPenambatanForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblDermagaKosong.setGridColor(new java.awt.Color(237, 241, 245));
+        tblDermagaKosong.setRowHeight(30);
+        tblDermagaKosong.setSelectionBackground(new java.awt.Color(222, 237, 249));
+        tblDermagaKosong.setSelectionForeground(new java.awt.Color(25, 53, 78));
         scrollDermagaKosong.setViewportView(tblDermagaKosong);
 
         pnlDocking.add(scrollDermagaKosong, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 460, 380));
@@ -173,9 +173,9 @@ public class OperatorPenambatanForm extends javax.swing.JFrame {
         });
         pnlDocking.add(btnMuatDocking, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 120, 36));
 
-        pnlMain.add(pnlDocking, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 1010, 610));
+        pnlMain.add(pnlDocking, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 1010, 610));
 
-        getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 1065, 755));
+        getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 1020, 755));
 
         pnlSidebar.setBackground(new java.awt.Color(17, 39, 67));
         pnlSidebar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

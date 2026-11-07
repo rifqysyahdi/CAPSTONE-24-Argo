@@ -976,7 +976,20 @@ public class DashboardOperator extends javax.swing.JFrame {
 
     // ---------- inisialisasi (di luar Design) ----------
     private void siapkan() {
-        userLabel.setText(operator.getNama() + "   \u00b7   Operator");
+        util.ProfilHeader.pasang(this, userLabel, pnlHeader, "Operator");
+
+        util.TabelUtil.kolom(tblDermagaKosong, "ID DERMAGA", "NAMA DERMAGA", "STATUS");
+        util.TabelUtil.kolom(tblSlotBm, "ID SLOT", "KODE BLOK", "STATUS", "ID OPERATOR");
+        util.TabelUtil.kolom(tblKargo, "ID KARGO", "NAMA BARANG", "BERAT (TON)", "STATUS", "ID KAPAL", "ID SLOT");
+
+        // volume tidak ada di database
+        jLabelVolumeM3.setVisible(false);
+        txtVolumeM3.setVisible(false);
+
+        // jenis kapal jadi dropdown
+        cmbJenis = new javax.swing.JComboBox<>(new String[]{"Kargo", "Tanker", "Kontainer", "Curah", "Penumpang"});
+        txtJenisK.setVisible(false);
+        pnlRegister.add(cmbJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 152, 400, 36));
         gayaTabel(tblDaftarKapal, scrollDaftarKapal);
         gayaTabel(tblAntre, scrollAntre);
         gayaTabel(tblDermagaKosong, scrollDermagaKosong);
@@ -1008,13 +1021,17 @@ public class DashboardOperator extends javax.swing.JFrame {
 
     /** Efek hover pada tombol sidebar supaya terasa seperti tombol. */
     private void pasangHoverNavigasi() {
+        Color warnaAktif = new Color(0, 140, 160);
+        Color warnaDefault = new Color(204,255,255);
+        Color warnaHover = new Color(40, 80, 125);   // Warna saat kursor menyentuh tombol
+        
         for (JButton b : navButtons) {
             b.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override public void mouseEntered(java.awt.event.MouseEvent e) {
-                    if (!b.getBackground().equals(new Color(0, 140, 160))) b.setBackground(new Color(30, 62, 100));
+                    if (!b.getBackground().equals(warnaAktif)) b.setBackground(warnaHover);
                 }
                 @Override public void mouseExited(java.awt.event.MouseEvent e) {
-                    if (!b.getBackground().equals(new Color(0, 140, 160))) b.setBackground(new Color(17, 39, 67));
+                    if (!b.getBackground().equals(warnaAktif)) b.setBackground(warnaDefault);
                 }
             });
         }
@@ -1029,8 +1046,11 @@ public class DashboardOperator extends javax.swing.JFrame {
     }
 
     private void tandaiNavigasi(int selected) {
+        Color warnaAktif = new Color(0, 140, 160);    // Warna biru saat menu sedang dibuka/aktif
+        Color warnaDefault = new Color(204,255,255);   // Warna biru default (biasa) untuk menu yang tidak aktif
+        
         for (int i = 0; i < navButtons.size(); i++)
-            navButtons.get(i).setBackground(i == selected ? new Color(0, 140, 160) : new Color(17, 39, 67));
+            navButtons.get(i).setBackground(i == selected ? warnaAktif : warnaDefault);
     }
 
     private void perbaruiDashboard(){
@@ -1065,7 +1085,7 @@ public class DashboardOperator extends javax.swing.JFrame {
         } catch (DateTimeParseException ex) {
             throw new Exception("Data Kapal Belum Lengkap atau Tidak Valid: format waktu harus yyyy-MM-dd HH:mm.");
         }
-        controller.daftarKapalBaru(txtNamaK.getText(), txtJenisK.getText(),
+        controller.daftarKapalBaru(txtNamaK.getText(), String.valueOf(cmbJenis.getSelectedItem()),
                 angka(txtGrossT, "Gross tonnage"), angka(txtDrafK, "Draf kapal"), waktu);
         info("Kapal Masuk Antrean");
         txtNamaK.setText("");
@@ -1098,7 +1118,7 @@ public class DashboardOperator extends javax.swing.JFrame {
     private void bongkarMuat() throws Exception {
         String kapal = dipilih(tblSandar, 0, "Pilih kapal yang sudah sandar terlebih dahulu.");
         String slot = dipilih(tblSlotBm, 0, "Pilih slot gudang terlebih dahulu.");
-        controller.prosesBongkarMuat(kapal, txtNamaBrg.getText(), angka(txtBeratTon, "Berat"), angka(txtVolumeM3, "Volume"), slot);
+        controller.prosesBongkarMuat(kapal, txtNamaBrg.getText(), angka(txtBeratTon, "Berat"), slot);
         info("Bongkar Muat Berhasil!");
         txtNamaBrg.setText("");
         txtBeratTon.setText("");
@@ -1123,7 +1143,7 @@ public class DashboardOperator extends javax.swing.JFrame {
         muatKargo();
         muatBongkar();
     }
-
+    private javax.swing.JComboBox<String> cmbJenis;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBongkar;
     private javax.swing.JButton btnDaftar;

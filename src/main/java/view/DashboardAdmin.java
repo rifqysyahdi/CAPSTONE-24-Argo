@@ -144,9 +144,9 @@ public class DashboardAdmin extends javax.swing.JFrame {
         btnMenuDaftarKapal = new javax.swing.JButton();
         btnMenuPenambatan = new javax.swing.JButton();
         btnMenuBongkarMuat = new javax.swing.JButton();
-        btnMenuKargo = new javax.swing.JButton();
+        btnMenuLap = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        btnMenuKargo1 = new javax.swing.JButton();
+        btnKelolaOpt = new javax.swing.JButton();
         pnlHeader = new javax.swing.JPanel();
         userLabel = new javax.swing.JLabel();
 
@@ -171,11 +171,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         scrollDermaga.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(224, 231, 238)));
 
         tblDermaga.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tblDermaga.setGridColor(new java.awt.Color(237, 241, 245));
-        tblDermaga.setRowHeight(30);
         tblDermaga.setForeground(new java.awt.Color(43, 57, 73));
-        tblDermaga.setSelectionBackground(new java.awt.Color(222, 237, 249));
-        tblDermaga.setSelectionForeground(new java.awt.Color(25, 53, 78));
         tblDermaga.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -192,6 +188,10 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblDermaga.setGridColor(new java.awt.Color(237, 241, 245));
+        tblDermaga.setRowHeight(30);
+        tblDermaga.setSelectionBackground(new java.awt.Color(222, 237, 249));
+        tblDermaga.setSelectionForeground(new java.awt.Color(25, 53, 78));
         scrollDermaga.setViewportView(tblDermaga);
 
         pnlDermaga.add(scrollDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 961, 300));
@@ -825,7 +825,6 @@ public class DashboardAdmin extends javax.swing.JFrame {
         btnMenuDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenuDashboard.setFocusPainted(false);
         btnMenuDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnMenuDashboard.setOpaque(true);
         btnMenuDashboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuDashboardActionPerformed(evt);
@@ -901,22 +900,22 @@ public class DashboardAdmin extends javax.swing.JFrame {
         });
         pnlSidebar.add(btnMenuBongkarMuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 240, 39));
 
-        btnMenuKargo.setBackground(new java.awt.Color(204, 255, 255));
-        btnMenuKargo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuKargo.setForeground(new java.awt.Color(0, 0, 51));
-        btnMenuKargo.setText("Laporan");
-        btnMenuKargo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
-        btnMenuKargo.setBorderPainted(false);
-        btnMenuKargo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMenuKargo.setFocusPainted(false);
-        btnMenuKargo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnMenuKargo.setOpaque(true);
-        btnMenuKargo.addActionListener(new java.awt.event.ActionListener() {
+        btnMenuLap.setBackground(new java.awt.Color(204, 255, 255));
+        btnMenuLap.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnMenuLap.setForeground(new java.awt.Color(0, 0, 51));
+        btnMenuLap.setText("Laporan");
+        btnMenuLap.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
+        btnMenuLap.setBorderPainted(false);
+        btnMenuLap.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenuLap.setFocusPainted(false);
+        btnMenuLap.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMenuLap.setOpaque(true);
+        btnMenuLap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuKargoActionPerformed(evt);
+                btnMenuLapActionPerformed(evt);
             }
         });
-        pnlSidebar.add(btnMenuKargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 240, 39));
+        pnlSidebar.add(btnMenuLap, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 240, 39));
 
         btnLogout.setBackground(new java.awt.Color(0, 0, 51));
         btnLogout.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -932,22 +931,22 @@ public class DashboardAdmin extends javax.swing.JFrame {
         });
         pnlSidebar.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 730, 205, 35));
 
-        btnMenuKargo1.setBackground(new java.awt.Color(204, 255, 255));
-        btnMenuKargo1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuKargo1.setForeground(new java.awt.Color(0, 0, 51));
-        btnMenuKargo1.setText("Kelola Akun Operator");
-        btnMenuKargo1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
-        btnMenuKargo1.setBorderPainted(false);
-        btnMenuKargo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMenuKargo1.setFocusPainted(false);
-        btnMenuKargo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnMenuKargo1.setOpaque(true);
-        btnMenuKargo1.addActionListener(new java.awt.event.ActionListener() {
+        btnKelolaOpt.setBackground(new java.awt.Color(204, 255, 255));
+        btnKelolaOpt.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnKelolaOpt.setForeground(new java.awt.Color(0, 0, 51));
+        btnKelolaOpt.setText("Kelola Akun Operator");
+        btnKelolaOpt.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
+        btnKelolaOpt.setBorderPainted(false);
+        btnKelolaOpt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnKelolaOpt.setFocusPainted(false);
+        btnKelolaOpt.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnKelolaOpt.setOpaque(true);
+        btnKelolaOpt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuKargo1ActionPerformed(evt);
+                btnKelolaOptActionPerformed(evt);
             }
         });
-        pnlSidebar.add(btnMenuKargo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 240, 39));
+        pnlSidebar.add(btnKelolaOpt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 240, 39));
 
         getContentPane().add(pnlSidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 820));
 
@@ -1054,9 +1053,9 @@ public class DashboardAdmin extends javax.swing.JFrame {
         bukaMenu(4);
     }//GEN-LAST:event_btnMenuBongkarMuatActionPerformed
 
-    private void btnMenuKargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuKargoActionPerformed
-        bukaMenu(5);
-    }//GEN-LAST:event_btnMenuKargoActionPerformed
+    private void btnMenuLapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuLapActionPerformed
+        bukaMenu(6);
+    }//GEN-LAST:event_btnMenuLapActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         DBConnection.logout();
@@ -1064,9 +1063,10 @@ public class DashboardAdmin extends javax.swing.JFrame {
         new WelcomeView().setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void btnMenuKargo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuKargo1ActionPerformed
+    private void btnKelolaOptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKelolaOptActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnMenuKargo1ActionPerformed
+        bukaMenu(5);
+    }//GEN-LAST:event_btnKelolaOptActionPerformed
 
     // ---------- util ----------
     private interface Aksi { void jalankan() throws Exception; }
@@ -1116,29 +1116,47 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
     // ---------- inisialisasi (di luar Design) ----------
     private void siapkan() {
-        userLabel.setText(admin.getNama() + "   \u00b7   Administrator");
+        util.ProfilHeader.pasang(this, userLabel, pnlHeader, "Administrator");
         gayaTabel(tblDermaga, scrollDermaga);
         gayaTabel(tblSlot, scrollSlot);
         gayaTabel(tblBilling, scrollBilling);
         gayaTabel(tblAkun, scrollAkun);
         gayaTabel(tblLaporan, scrollLaporan);
+
+        // header sesuai data database
+        util.TabelUtil.kolom(tblDermaga, "ID DERMAGA", "NAMA DERMAGA", "STATUS");
+        util.TabelUtil.kolom(tblSlot, "ID SLOT", "KODE BLOK", "STATUS", "ID OPERATOR");
+        util.TabelUtil.kolom(tblAkun, "ID PENGGUNA", "NAMA LENGKAP", "USERNAME", "STATUS", "SHIFT KERJA", "AREA TUGAS");
+
+        // kapasitas tidak ada di database
+        lblKapasitasDermaga.setVisible(false); txtKapasitasDermaga.setVisible(false);
+        lblKapasitasSlot.setVisible(false);    txtKapasitasSlot.setVisible(false);
+        btnUbahDermaga.setText("Ubah nama");
+        btnUbahSlot.setText("Ubah status");
+
+        // dropdown operator penanggung jawab (menggantikan kolom teks)
+        cmbOperator = new javax.swing.JComboBox<>();
+        txtOperatorSlot.setVisible(false);
+        pnlSlot.add(cmbOperator, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 357, 260, 36));
+
         siapkanNavigasi();
-        // Dashboard disiapkan bersama navigasi sidebar.
         txtDari.setText(LocalDate.now().withDayOfMonth(1).toString());
         txtSampai.setText(LocalDate.now().toString());
+        btnEkspor.setText("Ekspor ke Excel");
+
         tblDermaga.getSelectionModel().addListSelectionListener(e -> {
             int r = tblDermaga.getSelectedRow();
             if (e.getValueIsAdjusting() || r < 0) return;
             txtKodeDermaga.setText(String.valueOf(tblDermaga.getValueAt(r, 0)));
             txtNamaDermaga.setText(String.valueOf(tblDermaga.getValueAt(r, 1)));
-            txtKapasitasDermaga.setText(String.valueOf(tblDermaga.getValueAt(r, 2)));
         });
         tblSlot.getSelectionModel().addListSelectionListener(e -> {
             int r = tblSlot.getSelectedRow();
             if (e.getValueIsAdjusting() || r < 0) return;
             txtKodeBlok.setText(String.valueOf(tblSlot.getValueAt(r, 1)));
-            txtKapasitasSlot.setText(String.valueOf(tblSlot.getValueAt(r, 2)));
-            txtOperatorSlot.setText(String.valueOf(tblSlot.getValueAt(r, 5)));
+            String idOp = String.valueOf(tblSlot.getValueAt(r, 3));
+            for (int i = 0; i < cmbOperator.getItemCount(); i++)
+                if (cmbOperator.getItemAt(i).startsWith(idOp + " - ")) { cmbOperator.setSelectedIndex(i); break; }
         });
     }
 
@@ -1150,20 +1168,24 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private void siapkanNavigasi() {
         dashboardValues = new JLabel[]{lblCardValue1, lblCardValue2, lblCardValue3, lblCardValue4};
         dashboardTable = tblDashboard;
-        navButtons.addAll(java.util.Arrays.asList(btnMenuDashboard, btnMenuPendaftaran, btnMenuDaftarKapal, btnMenuPenambatan, btnMenuBongkarMuat, btnMenuKargo1, btnMenuKargo));
+        navButtons.addAll(java.util.Arrays.asList(btnMenuDashboard, btnMenuPendaftaran, btnMenuDaftarKapal, btnMenuPenambatan, btnMenuBongkarMuat, btnKelolaOpt, btnMenuLap));
         pasangHoverNavigasi();
         bukaMenu(0);
     }
 
     /** Efek hover pada tombol sidebar supaya terasa seperti tombol. */
     private void pasangHoverNavigasi() {
+        Color warnaAktif = new Color(0, 140, 160);
+        Color warnaDefault = new Color(204,255,255);
+        Color warnaHover = new Color(40, 80, 125);   // Warna saat kursor menyentuh tombol
+        
         for (JButton b : navButtons) {
             b.addMouseListener(new java.awt.event.MouseAdapter() {
                 @Override public void mouseEntered(java.awt.event.MouseEvent e) {
-                    if (!b.getBackground().equals(new Color(0, 140, 160))) b.setBackground(new Color(30, 62, 100));
+                    if (!b.getBackground().equals(warnaAktif)) b.setBackground(warnaHover);
                 }
                 @Override public void mouseExited(java.awt.event.MouseEvent e) {
-                    if (!b.getBackground().equals(new Color(0, 140, 160))) b.setBackground(new Color(17, 39, 67));
+                    if (!b.getBackground().equals(warnaAktif)) b.setBackground(warnaDefault);
                 }
             });
         }
@@ -1178,8 +1200,11 @@ public class DashboardAdmin extends javax.swing.JFrame {
     }
 
     private void tandaiNavigasi(int selected) {
+        Color warnaAktif = new Color(0, 140, 160);    // Warna biru saat menu sedang dibuka/aktif
+        Color warnaDefault = new Color(204,255,255);   // Warna biru default (biasa) untuk menu yang tidak aktif
+        
         for (int i = 0; i < navButtons.size(); i++)
-            navButtons.get(i).setBackground(i == selected ? new Color(0, 140, 160) : new Color(17, 39, 67));
+            navButtons.get(i).setBackground(i == selected ? warnaAktif : warnaDefault);
     }
 
     private void perbaruiDashboard() {
@@ -1197,11 +1222,15 @@ public class DashboardAdmin extends javax.swing.JFrame {
         dashboardTable.setModel(copy);
         dashboardTable.getTableHeader().setFont(new Font("SansSerif",Font.BOLD,10));
     }
-
+    private void muatSlot() throws Exception { isi(tblSlot, controller.getDaftarSlot()); isiOperator(); }
+    private void muatAkun() throws Exception { isi(tblAkun, controller.getDaftarOperator()); isiOperator(); }
+    private void isiOperator() throws Exception {
+        if (cmbOperator == null) return;
+        cmbOperator.removeAllItems();
+        for (Object[] r : controller.getDaftarOperator()) cmbOperator.addItem(r[0] + " - " + r[1]);
+    }
     private void muatDermaga() throws Exception { isi(tblDermaga, controller.getDaftarDermaga()); }
-    private void muatSlot() throws Exception { isi(tblSlot, controller.getDaftarSlot()); }
     private void muatBilling() throws Exception { isi(tblBilling, controller.getKapalSandar()); }
-    private void muatAkun() throws Exception { isi(tblAkun, controller.getDaftarOperator()); }
     private void muatTarif() throws Exception {
         double[] t = controller.getTarif();
         txtTarifTambat.setText(String.valueOf(t[0]));
@@ -1210,14 +1239,14 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
     // ---------- Menu 1: Kelola Dermaga ----------
     private void tambahDermaga() throws Exception {
-        controller.tambahDermaga(txtKodeDermaga.getText(), txtNamaDermaga.getText(), angka(txtKapasitasDermaga, "Kapasitas"));
+        controller.tambahDermaga(txtKodeDermaga.getText(), txtNamaDermaga.getText());
         info("Data Dermaga Berhasil Disimpan!");
         muatDermaga();
     }
 
     private void ubahDermaga() throws Exception {
         String id = dipilih(tblDermaga, 0, "Pilih dermaga dari tabel terlebih dahulu.");
-        controller.ubahDermaga(id, txtNamaDermaga.getText(), angka(txtKapasitasDermaga, "Kapasitas"));
+        controller.ubahDermaga(id, txtNamaDermaga.getText());
         info("Data Dermaga Berhasil Diubah!");
         muatDermaga();
     }
@@ -1242,15 +1271,20 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
     // ---------- Menu 2: Kelola Slot Gudang ----------
     private void tambahSlot() throws Exception {
-        controller.tambahSlotGudang(txtKodeBlok.getText(), angka(txtKapasitasSlot, "Kapasitas"), txtOperatorSlot.getText());
+        Object op = cmbOperator.getSelectedItem();
+        if (op == null) throw new Exception("Pilih operator penanggung jawab.");
+        controller.tambahSlotGudang(txtKodeBlok.getText(), op.toString().split(" - ")[0]);
         info("Data Slot Gudang Berhasil Disimpan!");
         muatSlot();
     }
 
     private void ubahSlot() throws Exception {
         String id = dipilih(tblSlot, 0, "Pilih slot gudang dari tabel terlebih dahulu.");
-        controller.ubahKapasitasSlot(id, angka(txtKapasitasSlot, "Kapasitas"));
-        info("Data Slot Gudang Berhasil Disimpan!");
+        Object st = JOptionPane.showInputDialog(this, "Status baru untuk slot " + id + ":", "Ubah status slot",
+                JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Kosong", "Terisi", "Penuh"}, "Kosong");
+        if (st == null) return;
+        controller.ubahStatusSlot(id, st.toString());
+        info("Status slot berhasil diubah.");
         muatSlot();
     }
 
@@ -1316,24 +1350,27 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private void eksporLaporan() throws Exception {
         if (laporanTerakhir == null) throw new Exception("Tampilkan laporan terlebih dahulu sebelum diekspor.");
         JFileChooser fc = new JFileChooser();
-        fc.setSelectedFile(new File("laporan_argoport_" + laporanMulai + "_" + laporanAkhir + ".csv"));
+        fc.setSelectedFile(new File("laporan_argoport_" + laporanMulai + "_" + laporanAkhir + ".xlsx"));
         if (fc.showSaveDialog(this) != JFileChooser.APPROVE_OPTION) return;
-        controller.eksporLaporan(fc.getSelectedFile(), laporanMulai, laporanAkhir, laporanTerakhir);
-        info("File Laporan Berhasil Diunduh!\n" + fc.getSelectedFile().getAbsolutePath());
+        File tujuan = fc.getSelectedFile();
+        if (!tujuan.getName().toLowerCase().endsWith(".xlsx"))
+            tujuan = new File(tujuan.getParentFile(), tujuan.getName() + ".xlsx");
+        controller.eksporLaporan(tujuan, laporanMulai, laporanAkhir, laporanTerakhir);
+        info("File Laporan Berhasil Diunduh!\n" + tujuan.getAbsolutePath());
     }
-
+    private javax.swing.JComboBox<String> cmbOperator;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBayar;
     private javax.swing.JButton btnEkspor;
     private javax.swing.JButton btnHapusAkun;
     private javax.swing.JButton btnHapusDermaga;
     private javax.swing.JButton btnHapusSlot;
+    private javax.swing.JButton btnKelolaOpt;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnMenuBongkarMuat;
     private javax.swing.JButton btnMenuDaftarKapal;
     private javax.swing.JButton btnMenuDashboard;
-    private javax.swing.JButton btnMenuKargo;
-    private javax.swing.JButton btnMenuKargo1;
+    private javax.swing.JButton btnMenuLap;
     private javax.swing.JButton btnMenuPenambatan;
     private javax.swing.JButton btnMenuPendaftaran;
     private javax.swing.JButton btnMuatAkun;

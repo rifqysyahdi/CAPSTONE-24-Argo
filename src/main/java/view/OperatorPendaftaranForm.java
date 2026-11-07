@@ -153,7 +153,7 @@ public class OperatorPendaftaranForm extends javax.swing.JFrame {
         });
         pnlRegister.add(btnDaftar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 650, 36));
 
-        pnlMain.add(pnlRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 1001, 640));
+        pnlMain.add(pnlRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 1001, 640));
 
         getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 1020, 755));
 

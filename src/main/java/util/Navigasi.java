@@ -9,9 +9,9 @@ import javax.swing.plaf.basic.BasicButtonUI;
 
 /** Aksi navigasi bersama untuk halaman awal, login, registrasi, dan sidebar dashboard. */
 public final class Navigasi {
-    private static final Color AKTIF = new Color(0, 140, 160);
-    private static final Color BIASA = new Color(28, 58, 95);
-    private static final Color HOVER = new Color(40, 80, 125);
+    private static final Color AKTIF = new Color(0, 140, 160);   
+    private static final Color BIASA = new Color(204,255,255);  
+    private static final Color HOVER = new Color(40, 120, 150);  
     private static final Color GARIS = new Color(52, 92, 140);
 
     private Navigasi() {}
