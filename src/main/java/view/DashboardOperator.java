@@ -143,6 +143,7 @@ public class DashboardOperator extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ArgoPort | Operator Workspace");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlSidebar.setBackground(new java.awt.Color(17, 39, 67));

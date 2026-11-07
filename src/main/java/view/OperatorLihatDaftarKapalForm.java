@@ -62,6 +62,7 @@ public class OperatorLihatDaftarKapalForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ArgoPort | Operator Workspace - Lihat Daftar Kapal");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlMain.setBackground(new java.awt.Color(246, 248, 251));

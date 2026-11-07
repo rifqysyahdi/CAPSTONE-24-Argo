@@ -234,7 +234,7 @@ public class AdminController {
     public List<Object[]> getKapalSandar() throws Exception {
         List<String[]> kapal = new ArrayList<>();
         try (Connection c = DBConnection.getConnection(); PreparedStatement ps = c.prepareStatement(
-                "SELECT k.id_kapal,k.nama_kapal,k.status_kapal FROM kapal k WHERE k.status_kapal='Sandar'" +
+                "SELECT k.id_kapal,k.nama_kapal,k.status_kapal FROM kapal k WHERE 1=1" +
                 SkemaDb.kapalDiWilayah("k", false) + " ORDER BY k.id_kapal");
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) kapal.add(new String[]{rs.getString(1), rs.getString(2), rs.getString(3)});
@@ -300,9 +300,12 @@ public class AdminController {
                     try (ResultSet rs = ps.executeQuery()) { if (!rs.next()) throw new Exception("Hanya Admin yang dapat memproses pembayaran."); }
                 }
                 try (PreparedStatement ps = c.prepareStatement("SELECT status_kapal FROM kapal WHERE id_kapal=?" + SkemaDb.kapalDiWilayah("kapal", false) + " FOR UPDATE")) {
-                    ps.setString(1, idKapal);
-                    try (ResultSet rs = ps.executeQuery()) { if (!rs.next() || !"Sandar".equalsIgnoreCase(rs.getString(1))) throw new Exception("Kapal tidak sedang sandar."); }
+                ps.setString(1, idKapal);
+                try (ResultSet rs = ps.executeQuery()) { 
+                    if (!rs.next()) 
+                        throw new Exception("Data kapal tidak ditemukan."); 
                 }
+            }
                 Tagihan t = hitungRincian(c, idKapal);
                 if ("Lunas".equalsIgnoreCase(t.statusBayar)) throw new Exception("Retribusi kapal ini sudah lunas.");
                 String status = lunas ? "Lunas" : "Belum Lunas";
