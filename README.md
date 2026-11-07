@@ -128,11 +128,33 @@ ARGOPORT SYSTEM memiliki beberapa fitur utama untuk mendukung pengelolaan operas
 
 ### Bahasa
 
+Java: Bahasa pemrograman yang digunakan untuk mengembangkan aplikasi ArgoPort Systems.
+
+SQL: Bahasa yang digunakan untuk mengelola dan memanipulasi data pada database MySQL.
+
 ---
 ### Data
 
+MySQL: Sistem manajemen basis data yang digunakan untuk menyimpan dan mengelola data operasional pelabuhan.
+
+MySQL Connector/J: Library yang menghubungkan aplikasi Java dengan database MySQL melalui JDBC
+
 ---
 ### Framework
+
+Java Swing : Digunakan untuk membangun antarmuka grafis (GUI) aplikasi desktop.
+
+Apache NetBeans: IDE yang digunakan untuk membuat, mengembangkan, dan menjalankan program Java.
+
+Laragon: Digunakan untuk menjalankan database MySQL secara lokal.
+
+Data Modeler : Digunakan untuk merancang model dan struktur database.
+
+Draw.io : Digunakan untuk membuat diagram sistem, seperti ERD dan Use Case Diagram.
+
+GitHub : Digunakan untuk menyimpan dan mengelola kode program.
+
+Canva : Digunakan untuk membuat desain presentasi proyek.
 
 ---
 ### Library
