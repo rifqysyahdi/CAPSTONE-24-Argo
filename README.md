@@ -326,8 +326,8 @@ Program ARGO PORT SYSTEM menerapkan** 4 pilar utama** Object-Oriented Programmin
 
 #### 🔐 Login  
 
-<p align="center">
-</p>
+<img width="1376" height="887" alt="image" src="https://github.com/user-attachments/assets/5e77b2cf-ac4f-499a-82bb-505c1e3eef9b" />
+
 
 Selanjutnya sebelum mengakses sistem adalah **login ke aplikasi Argoport System**.  
 Pengguna wajib mengisi **Username** dan **Password** yang telah terdaftar, kemudian menekan tombol **Login**.
@@ -345,11 +345,12 @@ Tampilan ini menunjukkan bahwa pengguna telah berhasil melakukan autentikasi dan
 
 Setelah login, pengguna akan diarahkan ke dashboard aplikasi **Argoport System**, di mana mereka dapat:
 
-Tampilan sederhana dan responsif memudahkan pengguna dalam mengakses fitur utama dengan cepat dan efisien.  
 
 ---
 #### 🚢 **Pendaftaran Kapal Baru**  
 
+
+<img width="1600" height="1025" alt="image" src="https://github.com/user-attachments/assets/42b87c42-0e97-48e3-a671-e40ce269a404" />
 
 
 Halaman Pendaftaran Kapal Baru berfungsi untuk menambahkan data kapal yang akan menggunakan layanan pelabuhan Argo. Operator dapat mengisi informasi kapal sebelum kapal masuk ke dalam proses operasional pelabuhan.
@@ -366,6 +367,9 @@ Setelah data diisi dan disimpan, informasi kapal akan masuk ke dalam database da
 
 ---
 #### 📊 **Lihat Daftar Kapal**  
+
+
+<img width="1600" height="1025" alt="image" src="https://github.com/user-attachments/assets/591a691a-42b3-4661-b1e7-d84b17314635" />
 
 
 Halaman Daftar Kapal berfungsi untuk menampilkan dan memantau data kapal yang telah terdaftar dalam sistem ArgoPort Systems. Melalui halaman ini, operator dapat melihat informasi kapal serta menghapus data kapal sesuai kebutuhan operasional pelabuhan.
@@ -386,6 +390,9 @@ Setiap data kapal ditampilkan dalam tabel yang berisi:
 ### ⚓ **Penambatan Kapal**
 
 
+<img width="1600" height="1025" alt="image" src="https://github.com/user-attachments/assets/9d6f316b-d941-4e26-8367-4279f81805b3" />
+
+
 Halaman Penambatan Kapal berfungsi untuk mengatur dan memantau proses penempatan kapal pada dermaga yang tersedia. Operator dapat memilih kapal yang berstatus antre, kemudian menghubungkannya dengan dermaga yang masih kosong agar proses penambatan sesuai dengan ketersediaan dermaga.
 
 Pada halaman ini, operator dapat melihat informasi berupa:
@@ -404,6 +411,8 @@ Setelah proses penambatan dilakukan, data penempatan kapal akan tersimpan dalam 
 ### 🔨 **Bongkar Muat Kargo**
 
 
+<img width="1600" height="1025" alt="image" src="https://github.com/user-attachments/assets/70561220-23c1-40d0-b233-5a9445557d49" />
+
 
 Halaman Pengelolaan Bongkar Muat Kargo digunakan untuk mencatat data barang yang dibongkar dari kapal serta menentukan lokasi penyimpanannya di gudang. Operator dapat memilih kapal yang sedang bersandar, kemudian mengisi informasi barang dan memilih slot gudang yang tersedia.
 
@@ -419,6 +428,8 @@ Setelah data disimpan, informasi kargo akan tersimpan dalam database dan terhubu
 ---
 ### 🗂️ **Kelola Data Kargo**
 
+
+<img width="1600" height="1025" alt="image" src="https://github.com/user-attachments/assets/4dfd5000-11cb-480d-93f4-b32bb890c221" />
 
 
 Halaman Kelola Data Kargo digunakan oleh operator untuk melihat, memperbarui, dan menghapus data kargo yang telah terdaftar dalam sistem. Melalui halaman ini, operator dapat memantau informasi barang serta menyesuaikan data apabila terdapat perubahan.
@@ -503,7 +514,7 @@ Informasi tarif yang dikelola meliputi:
 
 
 <details>
-  <summary>🧾 <b>5 Billing dan Pendaftaran</b></summary>
+  <summary>🧾 <b>5 Billing dan Pembayaran</b></summary>
 
   <p align="center">
     <img width="1322" height="768" alt="image" src="https://github.com/user-attachments/assets/b44511ff-33fe-47bc-8785-67d36162cee6" />
@@ -518,6 +529,37 @@ Informasi yang ditampilkan meliputi:
 - Total Tagihan (Rp)
 - Status pembayaran
 </details>
+
+
+
+<details>
+  <summary>🧾 <b>5 Kelola Akun Operator</b></summary>
+
+  <p align="center">
+    <img width="1322" height="768" alt="image" src="https://github.com/user-attachments/assets/95440198-a8a6-402d-b04c-2184b47932b4" />
+
+  </p>
+
+  Halaman **Manajemen Akun Operator** digunakan oleh admin untuk melihat dan menghapus akun operator yang telah terdaftar dalam sistem.
+Setiap data akun ditampilkan dalam tabel yang berisi:
+•	ID pengguna
+•	Nama lengkap
+•	Username
+•	Status
+•	Shift Kerja										
+</details>
+
+
+<details>
+  <summary>🧾 <b>6 Laporan</b></summary>
+
+  <p align="center">
+    <img width="1600" height="1029" alt="image" src="https://github.com/user-attachments/assets/75c77944-89d9-463b-b115-7791cf56f554" />
+  </p>
+
+  Halaman **Manajemen Laporan** digunakan oleh admin untuk melihat dan memantau laporan yang masuk, termasuk perkembangan serta status penanganannya. Admin juga dapat mengekspor data laporan ke dalam format Excel untuk keperluan dokumentasi.									
+</details>
+
 
 
 ---
