@@ -364,6 +364,17 @@ public class OperatorPenambatanForm extends javax.swing.JFrame {
         new WelcomeView().setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void bukaMenu(int index) {
+    dispose();
+    switch (index) {
+        case 0: new DashboardOperator(util.Sesi.pengguna).setVisible(true); break;
+        case 1: new OperatorPendaftaranForm().setVisible(true); break;
+        case 2: new OperatorLihatDaftarKapalForm().setVisible(true); break;
+        case 3: new OperatorPenambatanForm().setVisible(true); break;
+        case 4: new OperatorBongkarMuatForm().setVisible(true); break;
+        default: new OperatorKargoForm().setVisible(true);
+    }
+}
     // ---------- util ----------
     private interface Aksi { void jalankan() throws Exception; }
 

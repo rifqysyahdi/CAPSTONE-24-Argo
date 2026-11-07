@@ -431,6 +431,18 @@ public class AdminSlotForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
+    private void bukaMenu(int index) {
+    dispose();
+    switch (index) {
+        case 0: new DashboardAdmin(util.Sesi.pengguna).setVisible(true); break;
+        case 1: new AdminDermagaForm().setVisible(true); break;
+        case 2: new AdminSlotForm().setVisible(true); break;
+        case 3: new AdminTarifForm().setVisible(true); break;
+        case 4: new AdminBillingForm().setVisible(true); break;
+        case 5: new AdminAkunForm().setVisible(true); break;
+        default: new AdminLaporanForm().setVisible(true);
+    }
+}
     // ---------- util ----------
     private interface Aksi { void jalankan() throws Exception; }
 
@@ -479,22 +491,22 @@ public class AdminSlotForm extends javax.swing.JFrame {
     // ---------- inisialisasi (di luar Design) ----------
     private void siapkan() {
         util.ProfilHeader.pasang(this, userLabel, pnlHeader, "Administrator");
-        util.Navigasi.gayaSidebar(btnMenuDashboard, btnMenuDermaga, btnMenuSlot, btnMenuTarif, btnMenuBilling, btnMenuAkun, btnMenuLaporan);
-        util.Navigasi.pasangKeluar(btnLogout, btnMenuDashboard, btnMenuDermaga, btnMenuSlot, btnMenuTarif, btnMenuBilling, btnMenuAkun, btnMenuLaporan);
+        util.Navigasi.gayaSidebar(btnMenuDashboard, btnMenuPendaftaran, btnMenuDaftarKapal, btnMenuPenambatan, btnMenuBongkarMuat, btnMenuKargo1, btnMenuKargo);
+        util.Navigasi.pasangKeluar(btnLogout, btnMenuDashboard, btnMenuPendaftaran, btnMenuDaftarKapal, btnMenuPenambatan, btnMenuBongkarMuat, btnMenuKargo1, btnMenuKargo);
         gayaTabel(tblSlot, scrollSlot);
         tblSlot.getSelectionModel().addListSelectionListener(e -> {
             int r = tblSlot.getSelectedRow();
             if (e.getValueIsAdjusting() || r < 0) return;
-            txtKodeBlok.setText(String.valueOf(tblSlot.getValueAt(r, 1)));
+            jComboBox2.setSelectedItem(String.valueOf(tblSlot.getValueAt(r, 1)));
             txtKapasitasSlot.setText(String.valueOf(tblSlot.getValueAt(r, 2)));
-            txtOperatorSlot.setText(String.valueOf(tblSlot.getValueAt(r, 5)));
+            jComboBox1.setSelectedItem(String.valueOf(tblSlot.getValueAt(r, 5)));
         });
     }
 
     private void muatSlot() throws Exception { isi(tblSlot, controller.getDaftarSlot()); }
 
     private void tambahSlot() throws Exception {
-        controller.tambahSlotGudang(txtKodeBlok.getText(), angka(txtKapasitasSlot, "Kapasitas"), txtOperatorSlot.getText());
+        controller.tambahSlotGudang(String.valueOf(jComboBox2.getSelectedItem()), angka(txtKapasitasSlot, "Kapasitas"), String.valueOf(jComboBox1.getSelectedItem()));
         info("Data Slot Gudang Berhasil Disimpan!");
         muatSlot();
     }

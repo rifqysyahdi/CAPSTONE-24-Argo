@@ -141,7 +141,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="0" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;width:650px&quot;&gt;Argoport System hadir sebagai ekspedisi muatan kapal laut (EMKL) terbesar dan terpercaya se-Kalimantan Timur &#xa;yang mendukung efisiensi operasional pengiriman kargo.&lt;/div&gt;&lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;width:650px&quot;&gt;Argoport System hadir sebagai ekspedisi muatan kapal laut (EMKL) terbesar dan terpercaya se-Kalimantan Timur  yang mendukung efisiensi operasional pengiriman kargo.&lt;/div&gt;&lt;/html&gt;"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1000, 550]"/>
         </Property>
@@ -154,7 +154,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="30" y="180" width="1060" height="60"/>
+          <AbsoluteConstraints x="30" y="180" width="860" height="60"/>
         </Constraint>
       </Constraints>
     </Component>

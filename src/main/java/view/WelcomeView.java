@@ -88,11 +88,11 @@ public class WelcomeView extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel2.setText("<html><div style=\"width:650px\">Argoport System hadir sebagai ekspedisi muatan kapal laut (EMKL) terbesar dan terpercaya se-Kalimantan Timur \nyang mendukung efisiensi operasional pengiriman kargo.</div></html>");
+        jLabel2.setText("<html><div style=\"width:650px\">Argoport System hadir sebagai ekspedisi muatan kapal laut (EMKL) terbesar dan terpercaya se-Kalimantan Timur  yang mendukung efisiensi operasional pengiriman kargo.</div></html>");
         jLabel2.setMaximumSize(new java.awt.Dimension(1000, 550));
         jLabel2.setMinimumSize(new java.awt.Dimension(1000, 550));
         jLabel2.setPreferredSize(new java.awt.Dimension(1000, 550));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 1060, 60));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 860, 60));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 51));
@@ -152,17 +152,7 @@ public class WelcomeView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int konfirmasi = JOptionPane.showConfirmDialog(
-            this,
-            "Apakah Anda yakin ingin logout?",
-            "Konfirmasi Logout",
-            JOptionPane.YES_NO_OPTION
-        );
-
-        if (konfirmasi == JOptionPane.YES_OPTION) {
-            new LoginView().setVisible(true);
-            this.dispose();
-        }// TODO add your handling code here:
+    System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

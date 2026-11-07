@@ -1150,7 +1150,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private void siapkanNavigasi() {
         dashboardValues = new JLabel[]{lblCardValue1, lblCardValue2, lblCardValue3, lblCardValue4};
         dashboardTable = tblDashboard;
-        navButtons.addAll(java.util.Arrays.asList(btnMenuDashboard, btnMenuDermaga, btnMenuSlot, btnMenuTarif, btnMenuBilling, btnMenuAkun, btnMenuLaporan));
+        navButtons.addAll(java.util.Arrays.asList(btnMenuDashboard, btnMenuPendaftaran, btnMenuDaftarKapal, btnMenuPenambatan, btnMenuBongkarMuat, btnMenuKargo1, btnMenuKargo));
         pasangHoverNavigasi();
         bukaMenu(0);
     }
@@ -1174,7 +1174,6 @@ public class DashboardAdmin extends javax.swing.JFrame {
         String[] menu = {"Dashboard", "Kelola Dermaga", "Kelola Slot Gudang", "Kelola Tarif", "Billing & Pembayaran", "Kelola Akun Operator", "Laporan"};
         ((java.awt.CardLayout) pnlContent.getLayout()).show(pnlContent, "card" + index);
         lblHeading.setText(index == 0 ? "Dashboard Admin" : menu[index]);
-        lblSubheading.setText(index == 0 ? "Ringkasan data operasional pelabuhan." : "Kelola dan pantau data " + menu[index].toLowerCase() + ".");
         tandaiNavigasi(index);
     }
 
