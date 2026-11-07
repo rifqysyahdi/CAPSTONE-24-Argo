@@ -128,25 +128,25 @@ ARGOPORT SYSTEM memiliki beberapa fitur utama untuk mendukung pengelolaan operas
 
 ### Bahasa
 
-Java: Bahasa pemrograman yang digunakan untuk mengembangkan aplikasi ArgoPort Systems.
+Java : Bahasa pemrograman yang digunakan untuk mengembangkan aplikasi ArgoPort Systems.
 
-SQL: Bahasa yang digunakan untuk mengelola dan memanipulasi data pada database MySQL.
+SQL : Bahasa yang digunakan untuk mengelola dan memanipulasi data pada database MySQL.
 
 ---
 ### Data
 
-MySQL: Sistem manajemen basis data yang digunakan untuk menyimpan dan mengelola data operasional pelabuhan.
+MySQL : Sistem manajemen basis data yang digunakan untuk menyimpan dan mengelola data operasional pelabuhan.
 
-MySQL Connector/J: Library yang menghubungkan aplikasi Java dengan database MySQL melalui JDBC
+MySQL Connector/J : Library yang menghubungkan aplikasi Java dengan database MySQL melalui JDBC
 
 ---
 ### Framework
 
 Java Swing : Digunakan untuk membangun antarmuka grafis (GUI) aplikasi desktop.
 
-Apache NetBeans: IDE yang digunakan untuk membuat, mengembangkan, dan menjalankan program Java.
+Apache NetBeans : IDE yang digunakan untuk membuat, mengembangkan, dan menjalankan program Java.
 
-Laragon: Digunakan untuk menjalankan database MySQL secara lokal.
+Laragon : Digunakan untuk menjalankan database MySQL secara lokal.
 
 Data Modeler : Digunakan untuk merancang model dan struktur database.
 
@@ -161,23 +161,24 @@ Canva : Digunakan untuk membuat desain presentasi proyek.
 
 Program ini menerapkan **library**:
 
-1. AbsoluteLayout-RELEASE260.jar – digunakan oleh NetBeans untuk mengatur tata letak (layout) komponen GUI secara absolut.
-2. flatlaf-3.5.1.jar – menyediakan tema tampilan modern untuk aplikasi berbasis Swing.
-3. hibernate-core-6.4.2.Final.jar – menangani proses Object Relational Mapping (ORM) antara objek Java dan tabel database.
-4. jakarta.persistence-api-3.1.0.jar – berisi antarmuka standar untuk manajemen entitas dan operasi basis data di Hibernate.
-5. jcalendar-1.4.jar – menambahkan komponen kalender dan pemilih tanggal dalam antarmuka aplikasi.
-6. jcommon-1.0.24.jar – library pendukung utama bagi JFreeChart untuk fungsi utilitas grafik.
-7. jfreechart-1.5.5.jar – digunakan untuk menampilkan data dalam bentuk grafik atau diagram statistik.
-8. jfreesvg-3.4.jar – memungkinkan ekspor grafik dari JFreeChart ke format SVG.
-9. logback-classic-1.5.6.jar – mengatur pencatatan log sistem secara fleksibel dan terstruktur.
-10. mysql-connector-j-8.3.0.jar – menghubungkan aplikasi Java dengan database MySQL
-11. swing-datetime-picker-2.1.3.jar – menyediakan komponen pemilih tanggal dan waktu untuk antarmuka Swing.
-12. jakarta.transaction-api-2.0.1.jar – mendukung pengelolaan transaksi database dalam aplikasi.
-13. logback-core-1.5.6.jar – bagian inti dari Logback yang menangani konfigurasi dan penulisan log.
-14. miglayout-core-5.3.jar – pustaka pengaturan tata letak GUI yang fleksibel dan mudah dikustomisasi.
-15. miglayout-swing-5.3.jar – integrasi MigLayout untuk aplikasi Swing agar tampilan lebih responsif.
-16. protobuf-java-3.25.1.jar – digunakan untuk serialisasi data dalam format biner yang efisien.
-17. slf4j-api-2.0.13.jar – antarmuka umum untuk sistem logging seperti Logback agar lebih konsisten dan modular.
+
+
+<img width="305" height="92" alt="image" src="https://github.com/user-attachments/assets/708499ac-35dc-4d74-9094-41a0afccf35e" />
+
+
+
+1. AbsoluteLayout-RELEASE260.jar
+
+   Digunakan untuk mengatur tata letak (layout) komponen antarmuka grafis pada aplikasi Java. Dengan Absolute Layout, posisi dan ukuran setiap komponen dapat diatur secara bebas menggunakan koordinat absolut (x, y, lebar, dan tinggi).
+
+2. mysql-connector-j-8.4.0.jar
+
+   Digunakan sebagai penghubung antara aplikasi Java dan database MySQL. Library ini memungkinkan program melakukan operasi seperti menyimpan, mengambil, mengubah, dan menghapus data melalui koneksi JDBC (Java Database Connectivity).
+
+3. protobuf-java-3.25.1.jar
+
+   Merupakan pustaka Protocol Buffers untuk Java yang digunakan untuk melakukan serialisasi dan deserialisasi data terstruktur secara efisien. Library ini menjadi dependensi pendukung yang digunakan oleh library atau layanan tertentu.
+
 
 ---
 ## 💻 **Perancangan Sistem**
