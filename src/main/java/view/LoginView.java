@@ -15,8 +15,8 @@ public class LoginView extends javax.swing.JFrame {
         initComponents();
         util.Branding.pasangIkonJendela(this);
         setLocationRelativeTo(null);
-    }
-
+        
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -37,6 +37,7 @@ public class LoginView extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        btnKeluar = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -155,6 +156,21 @@ public class LoginView extends javax.swing.JFrame {
 
         pnlLogin.add(pnlNav, new org.netbeans.lib.awtextra.AbsoluteConstraints(-350, -110, 1100, 72));
 
+        btnKeluar.setBackground(new java.awt.Color(253, 236, 234));
+        btnKeluar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnKeluar.setForeground(new java.awt.Color(176, 48, 38));
+        btnKeluar.setText("Keluar");
+        btnKeluar.setBorderPainted(false);
+        btnKeluar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnKeluar.setFocusPainted(false);
+        btnKeluar.setOpaque(true);
+        btnKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKeluarActionPerformed(evt);
+            }
+        });
+        pnlLogin.add(btnKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, -1, -1));
+
         getContentPane().add(pnlLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 115, 400, 470));
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg_main.jpg"))); // NOI18N
@@ -206,6 +222,11 @@ public class LoginView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
+    new WelcomeView().setVisible(true);
+    dispose();
+    }//GEN-LAST:event_btnKeluarActionPerformed
+
 
     private void doLogin() {
         String username = txtUsername.getText().trim();
@@ -225,14 +246,15 @@ public class LoginView extends javax.swing.JFrame {
                 return;
             }
             dispose();
-            if (p.getPeran().equalsIgnoreCase("Admin")) new AdminDashboardForm().setVisible(true);
-            else new OperatorDashboardForm().setVisible(true);
+            if (p.getPeran().equalsIgnoreCase("Admin")) new DashboardAdmin(p).setVisible(true);
+            else new DashboardOperator(p).setVisible(true);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Login tidak berhasil", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnKeluar;
     private javax.swing.JCheckBox btnLhtpw;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton jButton1;

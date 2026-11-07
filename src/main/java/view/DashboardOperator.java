@@ -1025,7 +1025,6 @@ public class DashboardOperator extends javax.swing.JFrame {
         String[] menu = {"Dashboard", "Pendaftaran Kapal Baru", "Lihat Daftar Kapal", "Penambatan Kapal", "Bongkar Muat Kargo", "Kelola Data Kargo"};
         ((java.awt.CardLayout) pnlContent.getLayout()).show(pnlContent, "card" + index);
         lblHeading.setText(index == 0 ? "Dashboard Operator" : menu[index]);
-        lblSubheading.setText(index == 0 ? "Ringkasan aktivitas kapal dan kargo." : "Kelola dan pantau data " + menu[index].toLowerCase() + ".");
         tandaiNavigasi(index);
     }
 

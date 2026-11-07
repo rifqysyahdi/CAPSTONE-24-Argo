@@ -343,7 +343,19 @@ public class AdminAkunForm extends javax.swing.JFrame {
     private void btnMenuKargo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuKargo1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMenuKargo1ActionPerformed
-
+    
+    private void bukaMenu(int index) {
+    dispose();
+    switch (index) {
+        case 0: new DashboardAdmin(util.Sesi.pengguna).setVisible(true); break;
+        case 1: new AdminDermagaForm().setVisible(true); break;
+        case 2: new AdminSlotForm().setVisible(true); break;
+        case 3: new AdminTarifForm().setVisible(true); break;
+        case 4: new AdminBillingForm().setVisible(true); break;
+        case 5: new AdminAkunForm().setVisible(true); break;
+        default: new AdminLaporanForm().setVisible(true);
+    }
+}
     // ---------- util ----------
     private interface Aksi { void jalankan() throws Exception; }
 
@@ -396,11 +408,10 @@ public class AdminAkunForm extends javax.swing.JFrame {
 
     private void siapkan() {
         util.ProfilHeader.pasang(this, userLabel, pnlHeader, "Administrator");
-        util.Navigasi.gayaSidebar(btnMenuDashboard, btnMenuDermaga, btnMenuSlot, btnMenuTarif, btnMenuBilling, btnMenuAkun, btnMenuLaporan);
-        util.Navigasi.pasangKeluar(btnLogout, btnMenuDashboard, btnMenuDermaga, btnMenuSlot, btnMenuTarif, btnMenuBilling, btnMenuAkun, btnMenuLaporan);
+        util.Navigasi.gayaSidebar(btnMenuDashboard, btnMenuPendaftaran, btnMenuDaftarKapal, btnMenuPenambatan, btnMenuBongkarMuat, btnMenuKargo1, btnMenuKargo);
+        util.Navigasi.pasangKeluar(btnLogout, btnMenuDashboard, btnMenuPendaftaran, btnMenuDaftarKapal, btnMenuPenambatan, btnMenuBongkarMuat, btnMenuKargo1, btnMenuKargo);
         gayaTabel(tblAkun, scrollAkun);
 
-        lblSubheading.setText("Akun login operator. Reset password, nonaktifkan akses, atau hapus permanen.");
         btnHapusAkun.setText("Hapus permanen");
 
         // Tabel mengikuti kolom akun_aplikasi (tabel yang dipakai saat login).

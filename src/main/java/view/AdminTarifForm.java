@@ -342,6 +342,18 @@ public class AdminTarifForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMenuKargo1ActionPerformed
 
+    private void bukaMenu(int index) {
+    dispose();
+    switch (index) {
+        case 0: new DashboardAdmin(util.Sesi.pengguna).setVisible(true); break;
+        case 1: new AdminDermagaForm().setVisible(true); break;
+        case 2: new AdminSlotForm().setVisible(true); break;
+        case 3: new AdminTarifForm().setVisible(true); break;
+        case 4: new AdminBillingForm().setVisible(true); break;
+        case 5: new AdminAkunForm().setVisible(true); break;
+        default: new AdminLaporanForm().setVisible(true);
+    }
+}
     // ---------- util ----------
     private interface Aksi { void jalankan() throws Exception; }
 
@@ -390,13 +402,9 @@ public class AdminTarifForm extends javax.swing.JFrame {
     // ---------- inisialisasi (di luar Design) ----------
     private void siapkan() {
         util.ProfilHeader.pasang(this, userLabel, pnlHeader, "Administrator");
-        util.Navigasi.gayaSidebar(btnMenuDashboard, btnMenuDermaga, btnMenuSlot, btnMenuTarif, btnMenuBilling, btnMenuAkun, btnMenuLaporan);
-        util.Navigasi.pasangKeluar(btnLogout, btnMenuDashboard, btnMenuDermaga, btnMenuSlot, btnMenuTarif, btnMenuBilling, btnMenuAkun, btnMenuLaporan);
-        String w = repository.Wilayah.aktif();
-        lblSubheading.setText(w == null
-                ? "Akun pusat: menampilkan tarif bawaan. Untuk mengubah tarif, masuk dengan akun admin wilayah."
-                : "Tarif retribusi khusus wilayah " + w + ". Berlaku untuk kapal di wilayah ini.");
-    }
+        util.Navigasi.gayaSidebar(btnMenuDashboard, btnMenuPendaftaran, btnMenuDaftarKapal, btnMenuPenambatan, btnMenuBongkarMuat, btnMenuKargo1, btnMenuKargo);
+        util.Navigasi.pasangKeluar(btnLogout, btnMenuDashboard, btnMenuPendaftaran, btnMenuDaftarKapal, btnMenuPenambatan, btnMenuBongkarMuat, btnMenuKargo1, btnMenuKargo);
+      }
 
     private void muatTarif() throws Exception {
         double[] t = controller.getTarif();

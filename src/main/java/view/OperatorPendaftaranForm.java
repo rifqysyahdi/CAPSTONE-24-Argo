@@ -21,10 +21,10 @@ import javax.swing.table.DefaultTableModel;
 import model.Pengguna;
 import repository.DBConnection;
 
+
 /**
- * 
- * 
- * /
+ * ArgoPort | Operator Workspace - Pendaftaran Kapal Baru.
+ */
 public class OperatorPendaftaranForm extends javax.swing.JFrame {
     private final OperatorController controller = new OperatorController();
     private static final DateTimeFormatter FORMAT_WAKTU = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -344,6 +344,17 @@ public class OperatorPendaftaranForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void bukaMenu(int index) {
+    dispose();
+    switch (index) {
+        case 0: new DashboardOperator(util.Sesi.pengguna).setVisible(true); break;
+        case 1: new OperatorPendaftaranForm().setVisible(true); break;
+        case 2: new OperatorLihatDaftarKapalForm().setVisible(true); break;
+        case 3: new OperatorPenambatanForm().setVisible(true); break;
+        case 4: new OperatorBongkarMuatForm().setVisible(true); break;
+        default: new OperatorKargoForm().setVisible(true);
+    }
+}
     // ---------- util ----------
     private interface Aksi { void jalankan() throws Exception; }
 
@@ -404,7 +415,7 @@ public class OperatorPendaftaranForm extends javax.swing.JFrame {
         } catch (DateTimeParseException ex) {
             throw new Exception("Data Kapal Belum Lengkap atau Tidak Valid: format waktu harus yyyy-MM-dd HH:mm.");
         }
-        controller.daftarKapalBaru(txtNamaK.getText(), txtJenisK.getText(),
+        controller.daftarKapalBaru(txtNamaK.getText(), String.valueOf(jComboBox1.getSelectedItem()),
                 angka(txtGrossT, "Gross tonnage"), angka(txtDrafK, "Draf kapal"), waktu);
         info("Kapal Masuk Antrean");
         txtNamaK.setText("");
