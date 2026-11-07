@@ -327,7 +327,6 @@ Program ARGO PORT SYSTEM menerapkan** 4 pilar utama** Object-Oriented Programmin
 #### 🔐 Login  
 
 <p align="center">
-  <img width="798" height="565" alt="Login Page" src="https://github.com/user-attachments/assets/3f6383ba-36dd-4aa0-b8f2-f989676b41da" />
 </p>
 
 Selanjutnya sebelum mengakses sistem adalah **login ke aplikasi Argoport System**.  
@@ -338,7 +337,6 @@ Pengguna juga dapat melihat password, apabila ingin melihat password yang telah 
 Setelah berhasil masuk, akan muncul notifikasi konfirmasi login seperti berikut:
 
 <p align="center">
-  <img width="802" height="559" alt="Screenshot 2025-11-04 221446 1" src="https://github.com/user-attachments/assets/b103e36f-1136-4941-9128-95db7b74ad79" />
 </p>
 
 Tampilan ini menunjukkan bahwa pengguna telah berhasil melakukan autentikasi dan siap menggunakan seluruh fitur di dalam sistem.
