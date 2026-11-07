@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableModel;
 import model.Pengguna;
-import config.DBConnection;
+import repository.DBConnection;
 
 /**
  * ArgoPort | Admin Workspace - Kelola Dermaga.
@@ -39,25 +39,8 @@ public class AdminDermagaForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlSidebar = new javax.swing.JPanel();
-        lblLogo = new javax.swing.JLabel();
-        lblBrand = new javax.swing.JLabel();
-        lblSection = new javax.swing.JLabel();
-        lblRole = new javax.swing.JLabel();
-        btnMenuDashboard = new javax.swing.JButton();
-        btnMenuDermaga = new javax.swing.JButton();
-        btnMenuSlot = new javax.swing.JButton();
-        btnMenuTarif = new javax.swing.JButton();
-        btnMenuBilling = new javax.swing.JButton();
-        btnMenuAkun = new javax.swing.JButton();
-        btnMenuLaporan = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
-        pnlHeader = new javax.swing.JPanel();
-        lblWelcome = new javax.swing.JLabel();
-        userLabel = new javax.swing.JLabel();
         pnlMain = new javax.swing.JPanel();
         lblHeading = new javax.swing.JLabel();
-        lblSubheading = new javax.swing.JLabel();
         pnlDermaga = new javax.swing.JPanel();
         scrollDermaga = new javax.swing.JScrollPane();
         tblDermaga = new javax.swing.JTable();
@@ -72,195 +55,32 @@ public class AdminDermagaForm extends javax.swing.JFrame {
         btnStatusDermaga = new javax.swing.JButton();
         btnHapusDermaga = new javax.swing.JButton();
         btnMuatDermaga = new javax.swing.JButton();
+        pnlSidebar = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
+        lblBrand = new javax.swing.JLabel();
+        lblRole = new javax.swing.JLabel();
+        btnMenuDashboard = new javax.swing.JButton();
+        btnMenuPendaftaran = new javax.swing.JButton();
+        btnMenuDaftarKapal = new javax.swing.JButton();
+        btnMenuPenambatan = new javax.swing.JButton();
+        btnMenuBongkarMuat = new javax.swing.JButton();
+        btnMenuKargo = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        btnMenuKargo1 = new javax.swing.JButton();
+        pnlHeader = new javax.swing.JPanel();
+        userLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ArgoPort | Admin Workspace - Kelola Dermaga");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pnlSidebar.setBackground(new java.awt.Color(17, 39, 67));
-        pnlSidebar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo_sidebar.png"))); // NOI18N
-        pnlSidebar.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 31, 42, 42));
-
-        lblBrand.setFont(new java.awt.Font("SansSerif", 1, 23)); // NOI18N
-        lblBrand.setForeground(new java.awt.Color(255, 255, 255));
-        lblBrand.setText("ARGOPORT");
-        pnlSidebar.add(lblBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 34, 175, 35));
-
-        lblSection.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
-        lblSection.setForeground(new java.awt.Color(113, 145, 173));
-        lblSection.setText("ADMINISTRATION");
-        pnlSidebar.add(lblSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 105, 220, 20));
-
-        lblRole.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        lblRole.setForeground(new java.awt.Color(255, 255, 255));
-        lblRole.setText("Menu Admin");
-        pnlSidebar.add(lblRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 135, 200, 22));
-
-        btnMenuDashboard.setBackground(new java.awt.Color(28, 58, 95));
-        btnMenuDashboard.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuDashboard.setForeground(new java.awt.Color(255, 255, 255));
-        btnMenuDashboard.setText("Dashboard");
-        btnMenuDashboard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 92, 140)));
-        btnMenuDashboard.setContentAreaFilled(false);
-        btnMenuDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMenuDashboard.setFocusPainted(false);
-        btnMenuDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnMenuDashboard.setOpaque(true);
-        btnMenuDashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuDashboardActionPerformed(evt);
-            }
-        });
-        pnlSidebar.add(btnMenuDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 190, 219, 39));
-
-        btnMenuDermaga.setBackground(new java.awt.Color(0, 140, 160));
-        btnMenuDermaga.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuDermaga.setForeground(new java.awt.Color(255, 255, 255));
-        btnMenuDermaga.setText("Kelola Dermaga");
-        btnMenuDermaga.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 92, 140)));
-        btnMenuDermaga.setContentAreaFilled(false);
-        btnMenuDermaga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMenuDermaga.setFocusPainted(false);
-        btnMenuDermaga.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnMenuDermaga.setOpaque(true);
-        btnMenuDermaga.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuDermagaActionPerformed(evt);
-            }
-        });
-        pnlSidebar.add(btnMenuDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 238, 219, 39));
-
-        btnMenuSlot.setBackground(new java.awt.Color(28, 58, 95));
-        btnMenuSlot.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuSlot.setForeground(new java.awt.Color(255, 255, 255));
-        btnMenuSlot.setText("Kelola Slot Gudang");
-        btnMenuSlot.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 92, 140)));
-        btnMenuSlot.setContentAreaFilled(false);
-        btnMenuSlot.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMenuSlot.setFocusPainted(false);
-        btnMenuSlot.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnMenuSlot.setOpaque(true);
-        btnMenuSlot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuSlotActionPerformed(evt);
-            }
-        });
-        pnlSidebar.add(btnMenuSlot, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 286, 219, 39));
-
-        btnMenuTarif.setBackground(new java.awt.Color(28, 58, 95));
-        btnMenuTarif.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuTarif.setForeground(new java.awt.Color(255, 255, 255));
-        btnMenuTarif.setText("Kelola Tarif");
-        btnMenuTarif.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 92, 140)));
-        btnMenuTarif.setContentAreaFilled(false);
-        btnMenuTarif.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMenuTarif.setFocusPainted(false);
-        btnMenuTarif.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnMenuTarif.setOpaque(true);
-        btnMenuTarif.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuTarifActionPerformed(evt);
-            }
-        });
-        pnlSidebar.add(btnMenuTarif, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 334, 219, 39));
-
-        btnMenuBilling.setBackground(new java.awt.Color(28, 58, 95));
-        btnMenuBilling.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuBilling.setForeground(new java.awt.Color(255, 255, 255));
-        btnMenuBilling.setText("Billing & Pembayaran");
-        btnMenuBilling.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 92, 140)));
-        btnMenuBilling.setContentAreaFilled(false);
-        btnMenuBilling.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMenuBilling.setFocusPainted(false);
-        btnMenuBilling.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnMenuBilling.setOpaque(true);
-        btnMenuBilling.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuBillingActionPerformed(evt);
-            }
-        });
-        pnlSidebar.add(btnMenuBilling, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 382, 219, 39));
-
-        btnMenuAkun.setBackground(new java.awt.Color(28, 58, 95));
-        btnMenuAkun.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuAkun.setForeground(new java.awt.Color(255, 255, 255));
-        btnMenuAkun.setText("Kelola Akun Operator");
-        btnMenuAkun.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 92, 140)));
-        btnMenuAkun.setContentAreaFilled(false);
-        btnMenuAkun.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMenuAkun.setFocusPainted(false);
-        btnMenuAkun.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnMenuAkun.setOpaque(true);
-        btnMenuAkun.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuAkunActionPerformed(evt);
-            }
-        });
-        pnlSidebar.add(btnMenuAkun, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 430, 219, 39));
-
-        btnMenuLaporan.setBackground(new java.awt.Color(28, 58, 95));
-        btnMenuLaporan.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuLaporan.setForeground(new java.awt.Color(255, 255, 255));
-        btnMenuLaporan.setText("Laporan");
-        btnMenuLaporan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(52, 92, 140)));
-        btnMenuLaporan.setContentAreaFilled(false);
-        btnMenuLaporan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMenuLaporan.setFocusPainted(false);
-        btnMenuLaporan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnMenuLaporan.setOpaque(true);
-        btnMenuLaporan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuLaporanActionPerformed(evt);
-            }
-        });
-        pnlSidebar.add(btnMenuLaporan, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 478, 219, 39));
-
-        btnLogout.setBackground(new java.awt.Color(17, 39, 67));
-        btnLogout.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(220, 231, 241));
-        btnLogout.setText("Keluar");
-        btnLogout.setBorderPainted(false);
-        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLogout.setFocusPainted(false);
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-        pnlSidebar.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 735, 205, 35));
-
-        getContentPane().add(pnlSidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 255, 820));
-
-        pnlHeader.setBackground(new java.awt.Color(255, 255, 255));
-        pnlHeader.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblWelcome.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
-        lblWelcome.setForeground(new java.awt.Color(105, 121, 140));
-        lblWelcome.setText("ADMIN WORKSPACE");
-        pnlHeader.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 20, 300, 18));
-
-        userLabel.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        userLabel.setForeground(new java.awt.Color(37, 54, 74));
-        userLabel.setText("Administrator");
-        userLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        pnlHeader.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 18, 340, 25));
-
-        getContentPane().add(pnlHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 0, 1065, 65));
-
         pnlMain.setBackground(new java.awt.Color(246, 248, 251));
         pnlMain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblHeading.setFont(new java.awt.Font("SansSerif", 1, 27)); // NOI18N
+        lblHeading.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         lblHeading.setForeground(new java.awt.Color(24, 41, 61));
         lblHeading.setText("Kelola Dermaga");
-        pnlMain.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 20, 800, 40));
-
-        lblSubheading.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        lblSubheading.setForeground(new java.awt.Color(112, 127, 145));
-        lblSubheading.setText("Kelola dan pantau data kelola dermaga.");
-        pnlMain.add(lblSubheading, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 62, 900, 25));
+        pnlMain.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 800, 40));
 
         pnlDermaga.setBackground(new java.awt.Color(255, 255, 255));
         pnlDermaga.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -268,11 +88,7 @@ public class AdminDermagaForm extends javax.swing.JFrame {
         scrollDermaga.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(224, 231, 238)));
 
         tblDermaga.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tblDermaga.setGridColor(new java.awt.Color(237, 241, 245));
-        tblDermaga.setRowHeight(30);
         tblDermaga.setForeground(new java.awt.Color(43, 57, 73));
-        tblDermaga.setSelectionBackground(new java.awt.Color(222, 237, 249));
-        tblDermaga.setSelectionForeground(new java.awt.Color(25, 53, 78));
         tblDermaga.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -289,36 +105,40 @@ public class AdminDermagaForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblDermaga.setGridColor(new java.awt.Color(237, 241, 245));
+        tblDermaga.setRowHeight(30);
+        tblDermaga.setSelectionBackground(new java.awt.Color(222, 237, 249));
+        tblDermaga.setSelectionForeground(new java.awt.Color(25, 53, 78));
         scrollDermaga.setViewportView(tblDermaga);
 
-        pnlDermaga.add(scrollDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 961, 300));
+        pnlDermaga.add(scrollDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 900, 360));
 
-        lblKodeDermaga.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        lblKodeDermaga.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         lblKodeDermaga.setForeground(new java.awt.Color(93, 108, 125));
         lblKodeDermaga.setText("Kode dermaga");
-        pnlDermaga.add(lblKodeDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 335, 220, 18));
+        pnlDermaga.add(lblKodeDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 220, 18));
 
-        lblNamaDermaga.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        lblNamaDermaga.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         lblNamaDermaga.setForeground(new java.awt.Color(93, 108, 125));
         lblNamaDermaga.setText("Nama dermaga");
-        pnlDermaga.add(lblNamaDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 335, 220, 18));
+        pnlDermaga.add(lblNamaDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 220, 18));
 
-        lblKapasitasDermaga.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        lblKapasitasDermaga.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         lblKapasitasDermaga.setForeground(new java.awt.Color(93, 108, 125));
         lblKapasitasDermaga.setText("Kapasitas maksimal (ton)");
-        pnlDermaga.add(lblKapasitasDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 335, 220, 18));
+        pnlDermaga.add(lblKapasitasDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 90, 220, 18));
 
         txtKodeDermaga.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         txtKodeDermaga.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(218, 226, 235)), javax.swing.BorderFactory.createEmptyBorder(5, 9, 5, 9)));
-        pnlDermaga.add(txtKodeDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 357, 200, 36));
+        pnlDermaga.add(txtKodeDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 200, 36));
 
         txtNamaDermaga.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         txtNamaDermaga.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(218, 226, 235)), javax.swing.BorderFactory.createEmptyBorder(5, 9, 5, 9)));
-        pnlDermaga.add(txtNamaDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 357, 360, 36));
+        pnlDermaga.add(txtNamaDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 360, 36));
 
         txtKapasitasDermaga.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         txtKapasitasDermaga.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(218, 226, 235)), javax.swing.BorderFactory.createEmptyBorder(5, 9, 5, 9)));
-        pnlDermaga.add(txtKapasitasDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 357, 200, 36));
+        pnlDermaga.add(txtKapasitasDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 260, 36));
 
         btnTambahDermaga.setBackground(new java.awt.Color(27, 93, 145));
         btnTambahDermaga.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
@@ -332,7 +152,7 @@ public class AdminDermagaForm extends javax.swing.JFrame {
                 btnTambahDermagaActionPerformed(evt);
             }
         });
-        pnlDermaga.add(btnTambahDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 415, 130, 36));
+        pnlDermaga.add(btnTambahDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 130, 36));
 
         btnUbahDermaga.setBackground(new java.awt.Color(235, 241, 247));
         btnUbahDermaga.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
@@ -346,7 +166,7 @@ public class AdminDermagaForm extends javax.swing.JFrame {
                 btnUbahDermagaActionPerformed(evt);
             }
         });
-        pnlDermaga.add(btnUbahDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 415, 190, 36));
+        pnlDermaga.add(btnUbahDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 190, 36));
 
         btnStatusDermaga.setBackground(new java.awt.Color(235, 241, 247));
         btnStatusDermaga.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
@@ -360,7 +180,7 @@ public class AdminDermagaForm extends javax.swing.JFrame {
                 btnStatusDermagaActionPerformed(evt);
             }
         });
-        pnlDermaga.add(btnStatusDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 415, 130, 36));
+        pnlDermaga.add(btnStatusDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 130, 36));
 
         btnHapusDermaga.setBackground(new java.awt.Color(253, 236, 234));
         btnHapusDermaga.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
@@ -374,7 +194,7 @@ public class AdminDermagaForm extends javax.swing.JFrame {
                 btnHapusDermagaActionPerformed(evt);
             }
         });
-        pnlDermaga.add(btnHapusDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 415, 110, 36));
+        pnlDermaga.add(btnHapusDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 110, 36));
 
         btnMuatDermaga.setBackground(new java.awt.Color(235, 241, 247));
         btnMuatDermaga.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
@@ -388,56 +208,177 @@ public class AdminDermagaForm extends javax.swing.JFrame {
                 btnMuatDermagaActionPerformed(evt);
             }
         });
-        pnlDermaga.add(btnMuatDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(861, 415, 120, 36));
+        pnlDermaga.add(btnMuatDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 120, 36));
 
-        pnlMain.add(pnlDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 100, 1001, 640));
+        pnlMain.add(pnlDermaga, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 960, 640));
 
-        getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 65, 1065, 755));
+        getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 1020, 760));
+
+        pnlSidebar.setBackground(new java.awt.Color(17, 39, 67));
+        pnlSidebar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo_sidebar.png"))); // NOI18N
+        pnlSidebar.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 31, 42, 42));
+
+        lblBrand.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        lblBrand.setForeground(new java.awt.Color(255, 255, 255));
+        lblBrand.setText("Argoport System");
+        pnlSidebar.add(lblBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 175, 35));
+
+        lblRole.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        lblRole.setForeground(new java.awt.Color(255, 255, 255));
+        lblRole.setText("Menu Admin");
+        pnlSidebar.add(lblRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 200, 22));
+
+        btnMenuDashboard.setBackground(new java.awt.Color(204, 255, 255));
+        btnMenuDashboard.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnMenuDashboard.setForeground(new java.awt.Color(0, 0, 51));
+        btnMenuDashboard.setText("Dashboard");
+        btnMenuDashboard.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
+        btnMenuDashboard.setBorderPainted(false);
+        btnMenuDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenuDashboard.setFocusPainted(false);
+        btnMenuDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMenuDashboard.setOpaque(true);
+        btnMenuDashboard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuDashboardActionPerformed(evt);
+            }
+        });
+        pnlSidebar.add(btnMenuDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 240, 39));
+
+        btnMenuPendaftaran.setBackground(new java.awt.Color(204, 255, 255));
+        btnMenuPendaftaran.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnMenuPendaftaran.setForeground(new java.awt.Color(0, 0, 51));
+        btnMenuPendaftaran.setText("Kelola Dermaga");
+        btnMenuPendaftaran.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
+        btnMenuPendaftaran.setBorderPainted(false);
+        btnMenuPendaftaran.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenuPendaftaran.setFocusPainted(false);
+        btnMenuPendaftaran.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMenuPendaftaran.setOpaque(true);
+        btnMenuPendaftaran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuPendaftaranActionPerformed(evt);
+            }
+        });
+        pnlSidebar.add(btnMenuPendaftaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 240, 39));
+
+        btnMenuDaftarKapal.setBackground(new java.awt.Color(204, 255, 255));
+        btnMenuDaftarKapal.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnMenuDaftarKapal.setForeground(new java.awt.Color(0, 0, 51));
+        btnMenuDaftarKapal.setText("Kelola Slot Gudang");
+        btnMenuDaftarKapal.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
+        btnMenuDaftarKapal.setBorderPainted(false);
+        btnMenuDaftarKapal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenuDaftarKapal.setFocusPainted(false);
+        btnMenuDaftarKapal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMenuDaftarKapal.setOpaque(true);
+        btnMenuDaftarKapal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuDaftarKapalActionPerformed(evt);
+            }
+        });
+        pnlSidebar.add(btnMenuDaftarKapal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 240, 39));
+
+        btnMenuPenambatan.setBackground(new java.awt.Color(204, 255, 255));
+        btnMenuPenambatan.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnMenuPenambatan.setForeground(new java.awt.Color(0, 0, 51));
+        btnMenuPenambatan.setText("Kelola Tarif Retribusi");
+        btnMenuPenambatan.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
+        btnMenuPenambatan.setBorderPainted(false);
+        btnMenuPenambatan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenuPenambatan.setFocusPainted(false);
+        btnMenuPenambatan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMenuPenambatan.setOpaque(true);
+        btnMenuPenambatan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuPenambatanActionPerformed(evt);
+            }
+        });
+        pnlSidebar.add(btnMenuPenambatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 240, 39));
+
+        btnMenuBongkarMuat.setBackground(new java.awt.Color(204, 255, 255));
+        btnMenuBongkarMuat.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnMenuBongkarMuat.setForeground(new java.awt.Color(0, 0, 51));
+        btnMenuBongkarMuat.setText("Billing & Pembayaran");
+        btnMenuBongkarMuat.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
+        btnMenuBongkarMuat.setBorderPainted(false);
+        btnMenuBongkarMuat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenuBongkarMuat.setFocusPainted(false);
+        btnMenuBongkarMuat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMenuBongkarMuat.setOpaque(true);
+        btnMenuBongkarMuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuBongkarMuatActionPerformed(evt);
+            }
+        });
+        pnlSidebar.add(btnMenuBongkarMuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 240, 39));
+
+        btnMenuKargo.setBackground(new java.awt.Color(204, 255, 255));
+        btnMenuKargo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnMenuKargo.setForeground(new java.awt.Color(0, 0, 51));
+        btnMenuKargo.setText("Laporan");
+        btnMenuKargo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
+        btnMenuKargo.setBorderPainted(false);
+        btnMenuKargo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenuKargo.setFocusPainted(false);
+        btnMenuKargo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMenuKargo.setOpaque(true);
+        btnMenuKargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuKargoActionPerformed(evt);
+            }
+        });
+        pnlSidebar.add(btnMenuKargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 240, 39));
+
+        btnLogout.setBackground(new java.awt.Color(0, 0, 51));
+        btnLogout.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(204, 255, 255));
+        btnLogout.setText("Keluar");
+        btnLogout.setContentAreaFilled(false);
+        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.setFocusPainted(false);
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        pnlSidebar.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 730, 205, 35));
+
+        btnMenuKargo1.setBackground(new java.awt.Color(204, 255, 255));
+        btnMenuKargo1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnMenuKargo1.setForeground(new java.awt.Color(0, 0, 51));
+        btnMenuKargo1.setText("Kelola Akun Operator");
+        btnMenuKargo1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
+        btnMenuKargo1.setBorderPainted(false);
+        btnMenuKargo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMenuKargo1.setFocusPainted(false);
+        btnMenuKargo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnMenuKargo1.setOpaque(true);
+        btnMenuKargo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuKargo1ActionPerformed(evt);
+            }
+        });
+        pnlSidebar.add(btnMenuKargo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 240, 39));
+
+        getContentPane().add(pnlSidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 820));
+
+        pnlHeader.setBackground(new java.awt.Color(255, 255, 255));
+        pnlHeader.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        userLabel.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        userLabel.setForeground(new java.awt.Color(37, 54, 74));
+        userLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        userLabel.setText("Pengguna");
+        pnlHeader.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(965, 18, 80, 25));
+
+        getContentPane().add(pnlHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 0, 1065, 60));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnMenuDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuDashboardActionPerformed
-        new AdminDashboardForm().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnMenuDashboardActionPerformed
-
-    private void btnMenuDermagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuDermagaActionPerformed
-        // sudah berada di menu ini
-    }//GEN-LAST:event_btnMenuDermagaActionPerformed
-
-    private void btnMenuSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuSlotActionPerformed
-        new AdminSlotForm().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnMenuSlotActionPerformed
-
-    private void btnMenuTarifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTarifActionPerformed
-        new AdminTarifForm().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnMenuTarifActionPerformed
-
-    private void btnMenuBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuBillingActionPerformed
-        new AdminBillingForm().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnMenuBillingActionPerformed
-
-    private void btnMenuAkunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuAkunActionPerformed
-        new AdminAkunForm().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnMenuAkunActionPerformed
-
-    private void btnMenuLaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuLaporanActionPerformed
-        new AdminLaporanForm().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnMenuLaporanActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        config.DBConnection.logout();
-        util.Sesi.pengguna = null;
-        new WelcomeView().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnHapusDermagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusDermagaActionPerformed
         jalankan(this::hapusDermaga, "Dermaga tidak dapat dihapus");
@@ -458,6 +399,40 @@ public class AdminDermagaForm extends javax.swing.JFrame {
     private void btnUbahDermagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahDermagaActionPerformed
         jalankan(this::ubahDermaga, "Data dermaga tidak valid");
     }//GEN-LAST:event_btnUbahDermagaActionPerformed
+
+    private void btnMenuDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuDashboardActionPerformed
+        bukaMenu(0);
+    }//GEN-LAST:event_btnMenuDashboardActionPerformed
+
+    private void btnMenuPendaftaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPendaftaranActionPerformed
+        bukaMenu(1);
+    }//GEN-LAST:event_btnMenuPendaftaranActionPerformed
+
+    private void btnMenuDaftarKapalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuDaftarKapalActionPerformed
+        bukaMenu(2);
+    }//GEN-LAST:event_btnMenuDaftarKapalActionPerformed
+
+    private void btnMenuPenambatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPenambatanActionPerformed
+        bukaMenu(3);
+    }//GEN-LAST:event_btnMenuPenambatanActionPerformed
+
+    private void btnMenuBongkarMuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuBongkarMuatActionPerformed
+        bukaMenu(4);
+    }//GEN-LAST:event_btnMenuBongkarMuatActionPerformed
+
+    private void btnMenuKargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuKargoActionPerformed
+        bukaMenu(5);
+    }//GEN-LAST:event_btnMenuKargoActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        DBConnection.logout();
+        dispose();
+        new WelcomeView().setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnMenuKargo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuKargo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMenuKargo1ActionPerformed
 
     // ---------- util ----------
     private interface Aksi { void jalankan() throws Exception; }
@@ -506,8 +481,9 @@ public class AdminDermagaForm extends javax.swing.JFrame {
 
     // ---------- inisialisasi (di luar Design) ----------
     private void siapkan() {
-        if (util.Sesi.pengguna != null) userLabel.setText(util.Sesi.pengguna.getNama() + "   \u00b7   Administrator");
+        util.ProfilHeader.pasang(this, userLabel, pnlHeader, "Administrator");
         util.Navigasi.gayaSidebar(btnMenuDashboard, btnMenuDermaga, btnMenuSlot, btnMenuTarif, btnMenuBilling, btnMenuAkun, btnMenuLaporan);
+        util.Navigasi.pasangKeluar(btnLogout, btnMenuDashboard, btnMenuDermaga, btnMenuSlot, btnMenuTarif, btnMenuBilling, btnMenuAkun, btnMenuLaporan);
         gayaTabel(tblDermaga, scrollDermaga);
         tblDermaga.getSelectionModel().addListSelectionListener(e -> {
             int r = tblDermaga.getSelectedRow();
@@ -554,13 +530,13 @@ public class AdminDermagaForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHapusDermaga;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnMenuAkun;
-    private javax.swing.JButton btnMenuBilling;
+    private javax.swing.JButton btnMenuBongkarMuat;
+    private javax.swing.JButton btnMenuDaftarKapal;
     private javax.swing.JButton btnMenuDashboard;
-    private javax.swing.JButton btnMenuDermaga;
-    private javax.swing.JButton btnMenuLaporan;
-    private javax.swing.JButton btnMenuSlot;
-    private javax.swing.JButton btnMenuTarif;
+    private javax.swing.JButton btnMenuKargo;
+    private javax.swing.JButton btnMenuKargo1;
+    private javax.swing.JButton btnMenuPenambatan;
+    private javax.swing.JButton btnMenuPendaftaran;
     private javax.swing.JButton btnMuatDermaga;
     private javax.swing.JButton btnStatusDermaga;
     private javax.swing.JButton btnTambahDermaga;
@@ -572,9 +548,6 @@ public class AdminDermagaForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblNamaDermaga;
     private javax.swing.JLabel lblRole;
-    private javax.swing.JLabel lblSection;
-    private javax.swing.JLabel lblSubheading;
-    private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel pnlDermaga;
     private javax.swing.JPanel pnlHeader;
     private javax.swing.JPanel pnlMain;

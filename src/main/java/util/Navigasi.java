@@ -43,4 +43,35 @@ public final class Navigasi {
             });
         }
     }
+
+    /**
+     * Memindahkan tombol Keluar tepat di bawah daftar menu sidebar dan memberinya tampilan tombol merah.
+     * Posisi lama (y=735) terpotong di layar yang tingginya kurang dari ~850 px (laptop 768 px, atau Windows scaling 125%).
+     */
+    public static void pasangKeluar(JButton keluar, JButton... menu) {
+        java.awt.Container sidebar = keluar.getParent();
+        if (sidebar == null) return;
+        int bawah = 0;
+        for (JButton m : menu) bawah = Math.max(bawah, m.getY() + m.getHeight());
+        sidebar.remove(keluar);
+        sidebar.add(keluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, bawah + 28, 219, 39));
+        keluar.setUI(new BasicButtonUI());
+        keluar.setText("Keluar");
+        keluar.setIcon(Branding.ikonKeluar(Color.WHITE, 16));
+        keluar.setIconTextGap(10);
+        keluar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        keluar.setFont(new java.awt.Font("SansSerif", java.awt.Font.BOLD, 12));
+        keluar.setForeground(Color.WHITE);
+        keluar.setBackground(new Color(168, 50, 44));
+        keluar.setContentAreaFilled(false);
+        keluar.setOpaque(true);
+        keluar.setBorderPainted(true);
+        keluar.setFocusPainted(false);
+        keluar.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(196, 82, 74), 1),
+                BorderFactory.createEmptyBorder(0, 14, 0, 8)));
+        keluar.setToolTipText("Keluar dari akun ini dan kembali ke halaman awal");
+        sidebar.revalidate();
+        sidebar.repaint();
+    }
 }

@@ -31,3 +31,35 @@ di method siapkan() tiap form.
 FILE LAMA
 AdminView.java dan OperatorView.java (dashboard satu jendela) sudah TIDAK dipakai
 Login lagi. Boleh dihapus kalau semua form baru sudah beres.
+
+UPDATE: HALAMAN AWAL JADI MIRIP WEBSITE
+========================================
+WelcomeView.java/.form didesain ulang:
+- Navbar di atas (logo + Beranda/Login/Registrasi + ikon Keluar).
+- Judul "ARGOPORT SYSTEM" di tengah atas foto latar, dengan 2 tombol
+  (Masuk ke Sistem / Daftar Operator).
+- Bagian "Tentang Kami" di bawahnya + 3 poin fitur singkat.
+- Tombol Keluar sekarang ikon (pintu + panah), bukan teks. Ikonnya
+  digambar langsung lewat kode (util.Branding.ikonKeluar), bukan file gambar.
+- Teks paragraf "Tentang Kami" pakai JTextArea (bukan JLabel+HTML) supaya
+  wrapping-nya stabil; kalau mau ubah isinya, edit lewat tab Design atau
+  cari lblAboutText.setText(...) di kode.
+
+
+UPDATE v9: PROFIL DI HEADER
+===========================
+Nama pengguna di header tiap form bisa diklik untuk membuka Profil (view.ProfilDialog).
+Pemasangannya satu baris di siapkan() tiap form:
+    util.ProfilHeader.pasang(this, userLabel, pnlHeader, "Administrator");   // atau "Operator"
+Form baru cukup memanggil baris itu. Tidak ada perubahan di blok Generated Code.
+ProfilDialog dibuat lewat kode, jadi tidak muncul di tab Design NetBeans.
+Pada AdminAkunForm, tombol Reset password / Nonaktifkan dan kolom tabel baru juga dipasang
+lewat kode di siapkan() (bukan di Design), supaya aman kalau form dibuka dan disimpan di NetBeans.
+
+UPDATE v10
+==========
+- Registrasi dihapus: RegisterView dan tombolnya di Welcome/Login sudah dibuang (java dan .form).
+- Tombol Keluar dipindah tepat di bawah menu sidebar (util.Navigasi.pasangKeluar, dipanggil di siapkan()),
+  karena posisi lama y=735 terpotong di layar pendek.
+- Filter wilayah: repository.Wilayah (dan, ikat, jalankan, wajib). Query baru yang menyentuh dermaga,
+  slot_gudang, atau kapal harus memakai helper itu supaya tetap terbatas per wilayah.

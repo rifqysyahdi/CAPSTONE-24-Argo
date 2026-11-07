@@ -1,7 +1,8 @@
 package controller;
 
-import config.DBConnection;
-import config.SlotRepository;
+import repository.DBConnection;
+import repository.SlotRepository;
+import repository.Wilayah;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -19,12 +20,13 @@ public class OperatorController {
                 || tonnage <= 0 || draf <= 0 || kedatangan == null) {
             throw new Exception("Data kapal belum lengkap atau tidak valid.");
         }
+        String wilayah = Wilayah.wajib();
         try (Connection c = DBConnection.getConnection()) {
             String id = SlotRepository.idBerikutnya(c, "kapal", "id_kapal", "K", 3);
             try (PreparedStatement ps = c.prepareStatement(
-                    "INSERT INTO kapal(id_kapal,nama_kapal,jenis_kapal,gross_tonnage,draf_kapal,status_kapal,waktu_kedatangan) VALUES(?,?,?,?,?,'Antre',?)")) {
+                    "INSERT INTO kapal(id_kapal,nama_kapal,jenis_kapal,gross_tonnage,draf_kapal,status_kapal,waktu_kedatangan,wilayah) VALUES(?,?,?,?,?,'Antre',?,?)")) {
                 ps.setString(1, id); ps.setString(2, nama.trim()); ps.setString(3, jenis.trim());
-                ps.setDouble(4, tonnage); ps.setDouble(5, draf); ps.setTimestamp(6, Timestamp.valueOf(kedatangan));
+                ps.setDouble(4, tonnage); ps.setDouble(5, draf); ps.setTimestamp(6, Timestamp.valueOf(kedatangan)); ps.setString(7, wilayah);
                 ps.executeUpdate();
             }
         }
@@ -35,9 +37,9 @@ public class OperatorController {
         String sql = "SELECT k.id_kapal,k.nama_kapal,k.jenis_kapal,k.gross_tonnage,k.draf_kapal,k.waktu_kedatangan,k.status_kapal," +
             "d.nama_dermaga,j.waktu_sandar FROM kapal k " +
             "LEFT JOIN jadwal_sandar j ON j.id_jadwal=(SELECT j2.id_jadwal FROM jadwal_sandar j2 WHERE j2.Kapal_id_kapal=k.id_kapal ORDER BY j2.waktu_sandar DESC LIMIT 1) " +
-            "LEFT JOIN dermaga d ON d.id_dermaga=j.Dermaga_id_dermaga ORDER BY k.waktu_kedatangan DESC, k.id_kapal DESC";
+            "LEFT JOIN dermaga d ON d.id_dermaga=j.Dermaga_id_dermaga WHERE 1=1" + Wilayah.dan("k.wilayah") + " ORDER BY k.waktu_kedatangan DESC, k.id_kapal DESC";
         List<Object[]> out = new ArrayList<>();
-        try (Connection c = DBConnection.getConnection(); PreparedStatement ps = c.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+        try (Connection c = DBConnection.getConnection(); PreparedStatement ps = c.prepareStatement(sql); ResultSet rs = Wilayah.jalankan(ps)) {
             while (rs.next()) {
                 out.add(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getDouble(5),
                     fmt(rs.getTimestamp(6)), rs.getString(7), rs.getString(8) == null ? "-" : rs.getString(8), fmt(rs.getTimestamp(9))});
@@ -49,8 +51,8 @@ public class OperatorController {
     public List<Object[]> getKapalByStatus(String status) throws SQLException {
         List<Object[]> out = new ArrayList<>();
         try (Connection c = DBConnection.getConnection(); PreparedStatement ps = c.prepareStatement(
-                "SELECT id_kapal,nama_kapal,jenis_kapal,gross_tonnage,waktu_kedatangan FROM kapal WHERE status_kapal=? ORDER BY waktu_kedatangan,id_kapal")) {
-            ps.setString(1, status);
+                "SELECT id_kapal,nama_kapal,jenis_kapal,gross_tonnage,waktu_kedatangan FROM kapal WHERE status_kapal=?" + Wilayah.dan("wilayah") + " ORDER BY waktu_kedatangan,id_kapal")) {
+            ps.setString(1, status); Wilayah.ikat(ps, 2);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) out.add(new Object[]{rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4), fmt(rs.getTimestamp(5))});
             }
@@ -61,8 +63,8 @@ public class OperatorController {
     /** Hanya kapal Antre tanpa kargo/jadwal yang boleh dihapus (use case: Hapus Kapal). */
     public void hapusKapal(String idKapal) throws Exception {
         try (Connection c = DBConnection.getConnection()) {
-            try (PreparedStatement ps = c.prepareStatement("SELECT status_kapal FROM kapal WHERE id_kapal=?")) {
-                ps.setString(1, idKapal);
+            try (PreparedStatement ps = c.prepareStatement("SELECT status_kapal FROM kapal WHERE id_kapal=?" + Wilayah.dan("wilayah"))) {
+                ps.setString(1, idKapal); Wilayah.ikat(ps, 2);
                 try (ResultSet rs = ps.executeQuery()) {
                     if (!rs.next()) throw new Exception("Data kapal tidak ditemukan.");
                     if (!"Antre".equalsIgnoreCase(rs.getString(1))) throw new Exception("Hanya kapal berstatus Antre yang dapat dihapus.");
@@ -81,8 +83,8 @@ public class OperatorController {
     public List<Object[]> getDermagaKosong() throws SQLException {
         List<Object[]> out = new ArrayList<>();
         try (Connection c = DBConnection.getConnection(); PreparedStatement ps = c.prepareStatement(
-                "SELECT id_dermaga,nama_dermaga,kapasitas_maksimal FROM dermaga WHERE status_dermaga='Tersedia' ORDER BY id_dermaga");
-             ResultSet rs = ps.executeQuery()) {
+                "SELECT id_dermaga,nama_dermaga,kapasitas_maksimal FROM dermaga WHERE status_dermaga='Tersedia'" + Wilayah.dan("wilayah") + " ORDER BY id_dermaga");
+             ResultSet rs = Wilayah.jalankan(ps)) {
             while (rs.next()) out.add(new Object[]{rs.getString(1), rs.getString(2), rs.getDouble(3)});
         }
         return out;
@@ -94,16 +96,16 @@ public class OperatorController {
             c.setAutoCommit(false);
             try {
                 double gt;
-                try (PreparedStatement ps = c.prepareStatement("SELECT gross_tonnage,status_kapal FROM kapal WHERE id_kapal=? FOR UPDATE")) {
-                    ps.setString(1, idKapal);
+                try (PreparedStatement ps = c.prepareStatement("SELECT gross_tonnage,status_kapal FROM kapal WHERE id_kapal=?" + Wilayah.dan("wilayah") + " FOR UPDATE")) {
+                    ps.setString(1, idKapal); Wilayah.ikat(ps, 2);
                     try (ResultSet rs = ps.executeQuery()) {
                         if (!rs.next()) throw new Exception("Data kapal tidak ditemukan.");
                         if (!"Antre".equalsIgnoreCase(rs.getString(2))) throw new Exception("Hanya kapal berstatus Antre yang dapat ditambatkan.");
                         gt = rs.getDouble(1);
                     }
                 }
-                try (PreparedStatement ps = c.prepareStatement("SELECT kapasitas_maksimal,status_dermaga FROM dermaga WHERE id_dermaga=? FOR UPDATE")) {
-                    ps.setString(1, idDermaga);
+                try (PreparedStatement ps = c.prepareStatement("SELECT kapasitas_maksimal,status_dermaga FROM dermaga WHERE id_dermaga=?" + Wilayah.dan("wilayah") + " FOR UPDATE")) {
+                    ps.setString(1, idDermaga); Wilayah.ikat(ps, 2);
                     try (ResultSet rs = ps.executeQuery()) {
                         if (!rs.next()) throw new Exception("Dermaga tidak ditemukan.");
                         if (!"Tersedia".equalsIgnoreCase(rs.getString(2))) throw new Exception("Dermaga penuh atau tidak tersedia. Kapal tetap di antrean.");
@@ -126,8 +128,8 @@ public class OperatorController {
     public List<Object[]> getSlotTersedia() throws SQLException {
         List<Object[]> out = new ArrayList<>();
         try (Connection c = DBConnection.getConnection(); PreparedStatement ps = c.prepareStatement(
-                "SELECT id_slot,kode_blok,kapasitas_volume_m3,sisa_volume_m3,status_slot FROM slot_gudang WHERE status_slot IN ('Kosong','Terisi') AND sisa_volume_m3>0 ORDER BY id_slot");
-             ResultSet rs = ps.executeQuery()) {
+                "SELECT id_slot,kode_blok,kapasitas_volume_m3,sisa_volume_m3,status_slot FROM slot_gudang WHERE status_slot IN ('Kosong','Terisi') AND sisa_volume_m3>0" + Wilayah.dan("wilayah") + " ORDER BY id_slot");
+             ResultSet rs = Wilayah.jalankan(ps)) {
             while (rs.next()) out.add(new Object[]{rs.getString(1), rs.getString(2), rs.getDouble(3), rs.getDouble(4), rs.getString(5)});
         }
         return out;
@@ -142,14 +144,14 @@ public class OperatorController {
         try (Connection c = DBConnection.getConnection()) {
             c.setAutoCommit(false);
             try {
-                try (PreparedStatement ps = c.prepareStatement("SELECT status_kapal FROM kapal WHERE id_kapal=? FOR UPDATE")) {
-                    ps.setString(1, idKapal);
+                try (PreparedStatement ps = c.prepareStatement("SELECT status_kapal FROM kapal WHERE id_kapal=?" + Wilayah.dan("wilayah") + " FOR UPDATE")) {
+                    ps.setString(1, idKapal); Wilayah.ikat(ps, 2);
                     try (ResultSet rs = ps.executeQuery()) {
                         if (!rs.next() || !"Sandar".equalsIgnoreCase(rs.getString(1))) throw new Exception("Kapal Belum Sandar.");
                     }
                 }
-                try (PreparedStatement ps = c.prepareStatement("SELECT sisa_volume_m3,status_slot FROM slot_gudang WHERE id_slot=? FOR UPDATE")) {
-                    ps.setString(1, idSlot);
+                try (PreparedStatement ps = c.prepareStatement("SELECT sisa_volume_m3,status_slot FROM slot_gudang WHERE id_slot=?" + Wilayah.dan("wilayah") + " FOR UPDATE")) {
+                    ps.setString(1, idSlot); Wilayah.ikat(ps, 2);
                     try (ResultSet rs = ps.executeQuery()) {
                         if (!rs.next()) throw new Exception("Slot gudang tidak ditemukan.");
                         String st = rs.getString(2);
@@ -173,8 +175,8 @@ public class OperatorController {
     public List<Object[]> getDaftarKargo() throws SQLException {
         List<Object[]> out = new ArrayList<>();
         try (Connection c = DBConnection.getConnection(); PreparedStatement ps = c.prepareStatement(
-                "SELECT id_kargo,nama_barang,berat_ton,volume_m3,status_kargo,Kapal_id_kapal,Slot_Gudang_id_slot FROM kargo ORDER BY id_kargo");
-             ResultSet rs = ps.executeQuery()) {
+                "SELECT id_kargo,nama_barang,berat_ton,volume_m3,status_kargo,Kapal_id_kapal,Slot_Gudang_id_slot FROM kargo WHERE Kapal_id_kapal IN (SELECT id_kapal FROM kapal WHERE 1=1" + Wilayah.dan("wilayah") + ") ORDER BY id_kargo");
+             ResultSet rs = Wilayah.jalankan(ps)) {
             while (rs.next()) out.add(new Object[]{rs.getString(1), rs.getString(2), rs.getDouble(3), rs.getDouble(4),
                 rs.getString(5), rs.getString(6), rs.getString(7)});
         }
@@ -186,8 +188,9 @@ public class OperatorController {
         if (idKargo == null || idKargo.isBlank()) throw new Exception("Pilih kargo terlebih dahulu.");
         if (namaBaru == null || namaBaru.isBlank() || beratBaru <= 0) throw new Exception("Nama barang dan berat harus valid.");
         try (Connection c = DBConnection.getConnection(); PreparedStatement ps = c.prepareStatement(
-                "UPDATE kargo SET nama_barang=?,berat_ton=? WHERE id_kargo=?")) {
-            ps.setString(1, namaBaru.trim()); ps.setDouble(2, beratBaru); ps.setString(3, idKargo);
+                "UPDATE kargo SET nama_barang=?,berat_ton=? WHERE id_kargo=?" +
+                " AND Kapal_id_kapal IN (SELECT id_kapal FROM kapal WHERE 1=1" + Wilayah.dan("wilayah") + ")")) {
+            ps.setString(1, namaBaru.trim()); ps.setDouble(2, beratBaru); ps.setString(3, idKargo); Wilayah.ikat(ps, 4);
             if (ps.executeUpdate() == 0) throw new Exception("Data kargo tidak ditemukan.");
         }
     }
@@ -199,8 +202,8 @@ public class OperatorController {
             c.setAutoCommit(false);
             try {
                 String slot;
-                try (PreparedStatement ps = c.prepareStatement("SELECT Slot_Gudang_id_slot FROM kargo WHERE id_kargo=? FOR UPDATE")) {
-                    ps.setString(1, idKargo);
+                try (PreparedStatement ps = c.prepareStatement("SELECT Slot_Gudang_id_slot FROM kargo WHERE id_kargo=? AND Kapal_id_kapal IN (SELECT id_kapal FROM kapal WHERE 1=1" + Wilayah.dan("wilayah") + ") FOR UPDATE")) {
+                    ps.setString(1, idKargo); Wilayah.ikat(ps, 2);
                     try (ResultSet rs = ps.executeQuery()) { if (!rs.next()) throw new Exception("Data kargo tidak ditemukan."); slot = rs.getString(1); }
                 }
                 try (PreparedStatement ps = c.prepareStatement("DELETE FROM kargo WHERE id_kargo=?")) { ps.setString(1, idKargo); ps.executeUpdate(); }

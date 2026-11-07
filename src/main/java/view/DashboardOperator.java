@@ -2,7 +2,7 @@ package view;
 
 import controller.OperatorController;
 import model.Pengguna;
-import config.DBConnection;
+import repository.DBConnection;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -34,7 +34,7 @@ import javax.swing.table.DefaultTableModel;
  * Dashboard Operator (sesuai flowchart: 5 menu + logout). Tampilan diatur lewat NetBeans Design
  * (OperatorView.form); logika ada di luar blok GEN.
  */
-public class OperatorView extends javax.swing.JFrame {
+public class DashboardOperator extends javax.swing.JFrame {
     private JPanel dashboardPanel;
     private JLabel[] dashboardValues;
     private JTable dashboardTable;
@@ -43,7 +43,7 @@ public class OperatorView extends javax.swing.JFrame {
     private final OperatorController controller = new OperatorController();
     private final Pengguna operator;
 
-    public OperatorView(Pengguna operator) {
+    public DashboardOperator(Pengguna operator) {
         this.operator = operator;
         initComponents();
         util.Branding.pasangIkonJendela(this);
@@ -55,10 +55,10 @@ public class OperatorView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        operatorPendaftaranForm1 = new view.OperatorPendaftaranForm();
         pnlSidebar = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         lblBrand = new javax.swing.JLabel();
-        lblSection = new javax.swing.JLabel();
         lblRole = new javax.swing.JLabel();
         btnMenuDashboard = new javax.swing.JButton();
         btnMenuPendaftaran = new javax.swing.JButton();
@@ -68,28 +68,10 @@ public class OperatorView extends javax.swing.JFrame {
         btnMenuKargo = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         pnlHeader = new javax.swing.JPanel();
-        lblWelcome = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
         pnlMain = new javax.swing.JPanel();
         lblHeading = new javax.swing.JLabel();
-        lblSubheading = new javax.swing.JLabel();
         pnlContent = new javax.swing.JPanel();
-        pnlDashboard = new javax.swing.JPanel();
-        pnlCard1 = new javax.swing.JPanel();
-        lblCardTitle1 = new javax.swing.JLabel();
-        lblCardValue1 = new javax.swing.JLabel();
-        pnlCard2 = new javax.swing.JPanel();
-        lblCardTitle2 = new javax.swing.JLabel();
-        lblCardValue2 = new javax.swing.JLabel();
-        pnlCard3 = new javax.swing.JPanel();
-        lblCardTitle3 = new javax.swing.JLabel();
-        lblCardValue3 = new javax.swing.JLabel();
-        pnlCard4 = new javax.swing.JPanel();
-        lblCardTitle4 = new javax.swing.JLabel();
-        lblCardValue4 = new javax.swing.JLabel();
-        lblRecent = new javax.swing.JLabel();
-        scrollDashboard = new javax.swing.JScrollPane();
-        tblDashboard = new javax.swing.JTable();
         pnlRegister = new javax.swing.JPanel();
         lblRegisterTitle = new javax.swing.JLabel();
         jLabelNamaK = new javax.swing.JLabel();
@@ -142,6 +124,22 @@ public class OperatorView extends javax.swing.JFrame {
         btnUbahKargo = new javax.swing.JButton();
         btnHapusKargo = new javax.swing.JButton();
         btnMuatKargo = new javax.swing.JButton();
+        pnlDashboard = new javax.swing.JPanel();
+        pnlCard1 = new javax.swing.JPanel();
+        lblCardTitle1 = new javax.swing.JLabel();
+        lblCardValue1 = new javax.swing.JLabel();
+        pnlCard2 = new javax.swing.JPanel();
+        lblCardTitle2 = new javax.swing.JLabel();
+        lblCardValue2 = new javax.swing.JLabel();
+        pnlCard3 = new javax.swing.JPanel();
+        lblCardTitle3 = new javax.swing.JLabel();
+        lblCardValue3 = new javax.swing.JLabel();
+        pnlCard4 = new javax.swing.JPanel();
+        lblCardTitle4 = new javax.swing.JLabel();
+        lblCardValue4 = new javax.swing.JLabel();
+        lblRecent = new javax.swing.JLabel();
+        scrollDashboard = new javax.swing.JScrollPane();
+        tblDashboard = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ArgoPort | Operator Workspace");
@@ -153,28 +151,22 @@ public class OperatorView extends javax.swing.JFrame {
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo_sidebar.png"))); // NOI18N
         pnlSidebar.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 31, 42, 42));
 
-        lblBrand.setFont(new java.awt.Font("SansSerif", 1, 23)); // NOI18N
+        lblBrand.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         lblBrand.setForeground(new java.awt.Color(255, 255, 255));
-        lblBrand.setText("ARGOPORT");
-        pnlSidebar.add(lblBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 34, 175, 35));
-
-        lblSection.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
-        lblSection.setForeground(new java.awt.Color(113, 145, 173));
-        lblSection.setText("OPERATIONS");
-        pnlSidebar.add(lblSection, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 105, 220, 20));
+        lblBrand.setText("Argoport System");
+        pnlSidebar.add(lblBrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 175, 35));
 
         lblRole.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         lblRole.setForeground(new java.awt.Color(255, 255, 255));
         lblRole.setText("Menu Operator");
-        pnlSidebar.add(lblRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 135, 200, 22));
+        pnlSidebar.add(lblRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 200, 22));
 
-        btnMenuDashboard.setBackground(new java.awt.Color(0, 140, 160));
+        btnMenuDashboard.setBackground(new java.awt.Color(204, 255, 255));
         btnMenuDashboard.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuDashboard.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenuDashboard.setForeground(new java.awt.Color(0, 0, 51));
         btnMenuDashboard.setText("Dashboard");
         btnMenuDashboard.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
         btnMenuDashboard.setBorderPainted(false);
-        btnMenuDashboard.setContentAreaFilled(false);
         btnMenuDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenuDashboard.setFocusPainted(false);
         btnMenuDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -184,15 +176,14 @@ public class OperatorView extends javax.swing.JFrame {
                 btnMenuDashboardActionPerformed(evt);
             }
         });
-        pnlSidebar.add(btnMenuDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 190, 219, 39));
+        pnlSidebar.add(btnMenuDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 240, 39));
 
-        btnMenuPendaftaran.setBackground(new java.awt.Color(17, 39, 67));
+        btnMenuPendaftaran.setBackground(new java.awt.Color(204, 255, 255));
         btnMenuPendaftaran.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuPendaftaran.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenuPendaftaran.setForeground(new java.awt.Color(0, 0, 51));
         btnMenuPendaftaran.setText("Pendaftaran Kapal Baru");
         btnMenuPendaftaran.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
         btnMenuPendaftaran.setBorderPainted(false);
-        btnMenuPendaftaran.setContentAreaFilled(false);
         btnMenuPendaftaran.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenuPendaftaran.setFocusPainted(false);
         btnMenuPendaftaran.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -202,15 +193,14 @@ public class OperatorView extends javax.swing.JFrame {
                 btnMenuPendaftaranActionPerformed(evt);
             }
         });
-        pnlSidebar.add(btnMenuPendaftaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 238, 219, 39));
+        pnlSidebar.add(btnMenuPendaftaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 240, 39));
 
-        btnMenuDaftarKapal.setBackground(new java.awt.Color(17, 39, 67));
+        btnMenuDaftarKapal.setBackground(new java.awt.Color(204, 255, 255));
         btnMenuDaftarKapal.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuDaftarKapal.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenuDaftarKapal.setForeground(new java.awt.Color(0, 0, 51));
         btnMenuDaftarKapal.setText("Lihat Daftar Kapal");
         btnMenuDaftarKapal.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
         btnMenuDaftarKapal.setBorderPainted(false);
-        btnMenuDaftarKapal.setContentAreaFilled(false);
         btnMenuDaftarKapal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenuDaftarKapal.setFocusPainted(false);
         btnMenuDaftarKapal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -220,15 +210,14 @@ public class OperatorView extends javax.swing.JFrame {
                 btnMenuDaftarKapalActionPerformed(evt);
             }
         });
-        pnlSidebar.add(btnMenuDaftarKapal, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 286, 219, 39));
+        pnlSidebar.add(btnMenuDaftarKapal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 240, 39));
 
-        btnMenuPenambatan.setBackground(new java.awt.Color(17, 39, 67));
+        btnMenuPenambatan.setBackground(new java.awt.Color(204, 255, 255));
         btnMenuPenambatan.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuPenambatan.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenuPenambatan.setForeground(new java.awt.Color(0, 0, 51));
         btnMenuPenambatan.setText("Penambatan Kapal");
         btnMenuPenambatan.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
         btnMenuPenambatan.setBorderPainted(false);
-        btnMenuPenambatan.setContentAreaFilled(false);
         btnMenuPenambatan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenuPenambatan.setFocusPainted(false);
         btnMenuPenambatan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -238,15 +227,14 @@ public class OperatorView extends javax.swing.JFrame {
                 btnMenuPenambatanActionPerformed(evt);
             }
         });
-        pnlSidebar.add(btnMenuPenambatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 334, 219, 39));
+        pnlSidebar.add(btnMenuPenambatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 240, 39));
 
-        btnMenuBongkarMuat.setBackground(new java.awt.Color(17, 39, 67));
+        btnMenuBongkarMuat.setBackground(new java.awt.Color(204, 255, 255));
         btnMenuBongkarMuat.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuBongkarMuat.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenuBongkarMuat.setForeground(new java.awt.Color(0, 0, 51));
         btnMenuBongkarMuat.setText("Bongkar Muat Kargo");
         btnMenuBongkarMuat.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
         btnMenuBongkarMuat.setBorderPainted(false);
-        btnMenuBongkarMuat.setContentAreaFilled(false);
         btnMenuBongkarMuat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenuBongkarMuat.setFocusPainted(false);
         btnMenuBongkarMuat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -256,15 +244,14 @@ public class OperatorView extends javax.swing.JFrame {
                 btnMenuBongkarMuatActionPerformed(evt);
             }
         });
-        pnlSidebar.add(btnMenuBongkarMuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 382, 219, 39));
+        pnlSidebar.add(btnMenuBongkarMuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 240, 39));
 
-        btnMenuKargo.setBackground(new java.awt.Color(17, 39, 67));
+        btnMenuKargo.setBackground(new java.awt.Color(204, 255, 255));
         btnMenuKargo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnMenuKargo.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenuKargo.setForeground(new java.awt.Color(0, 0, 51));
         btnMenuKargo.setText("Kelola Data Kargo");
         btnMenuKargo.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 8));
         btnMenuKargo.setBorderPainted(false);
-        btnMenuKargo.setContentAreaFilled(false);
         btnMenuKargo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenuKargo.setFocusPainted(false);
         btnMenuKargo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -274,13 +261,13 @@ public class OperatorView extends javax.swing.JFrame {
                 btnMenuKargoActionPerformed(evt);
             }
         });
-        pnlSidebar.add(btnMenuKargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 430, 219, 39));
+        pnlSidebar.add(btnMenuKargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 240, 39));
 
-        btnLogout.setBackground(new java.awt.Color(17, 39, 67));
-        btnLogout.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(220, 231, 241));
+        btnLogout.setBackground(new java.awt.Color(0, 0, 51));
+        btnLogout.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(204, 255, 255));
         btnLogout.setText("Keluar");
-        btnLogout.setBorderPainted(false);
+        btnLogout.setContentAreaFilled(false);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogout.setFocusPainted(false);
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -288,139 +275,31 @@ public class OperatorView extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        pnlSidebar.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 735, 205, 35));
+        pnlSidebar.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 730, 205, 35));
 
-        getContentPane().add(pnlSidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 255, 820));
+        getContentPane().add(pnlSidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 820));
 
         pnlHeader.setBackground(new java.awt.Color(255, 255, 255));
         pnlHeader.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblWelcome.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
-        lblWelcome.setForeground(new java.awt.Color(105, 121, 140));
-        lblWelcome.setText("OPERATOR WORKSPACE");
-        pnlHeader.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 20, 300, 18));
-
         userLabel.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         userLabel.setForeground(new java.awt.Color(37, 54, 74));
-        userLabel.setText("Pengguna");
         userLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        pnlHeader.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(705, 18, 340, 25));
+        userLabel.setText("Pengguna");
+        pnlHeader.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(965, 18, 80, 25));
 
-        getContentPane().add(pnlHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 0, 1065, 65));
+        getContentPane().add(pnlHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 0, 1065, 60));
 
         pnlMain.setBackground(new java.awt.Color(246, 248, 251));
         pnlMain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblHeading.setFont(new java.awt.Font("SansSerif", 1, 27)); // NOI18N
+        lblHeading.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         lblHeading.setForeground(new java.awt.Color(24, 41, 61));
         lblHeading.setText("Dashboard Operator");
-        pnlMain.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 20, 800, 40));
-
-        lblSubheading.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        lblSubheading.setForeground(new java.awt.Color(112, 127, 145));
-        lblSubheading.setText("Pendaftaran kapal, penambatan, bongkar muat, dan data kargo.");
-        pnlMain.add(lblSubheading, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 62, 900, 25));
+        pnlMain.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 800, 40));
 
         pnlContent.setBackground(new java.awt.Color(246, 248, 251));
         pnlContent.setLayout(new java.awt.CardLayout());
-
-        pnlDashboard.setBackground(new java.awt.Color(246, 248, 251));
-        pnlDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pnlCard1.setBackground(new java.awt.Color(255, 255, 255));
-        pnlCard1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 231, 239)));
-        pnlCard1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblCardTitle1.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
-        lblCardTitle1.setForeground(new java.awt.Color(105, 121, 140));
-        lblCardTitle1.setText("TOTAL KAPAL");
-        pnlCard1.add(lblCardTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, 190, 18));
-
-        lblCardValue1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        lblCardValue1.setForeground(new java.awt.Color(0, 140, 160));
-        lblCardValue1.setText("-");
-        pnlCard1.add(lblCardValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 34, 190, 35));
-
-        pnlDashboard.add(pnlCard1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 18, 222, 82));
-
-        pnlCard2.setBackground(new java.awt.Color(255, 255, 255));
-        pnlCard2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 231, 239)));
-        pnlCard2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblCardTitle2.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
-        lblCardTitle2.setForeground(new java.awt.Color(105, 121, 140));
-        lblCardTitle2.setText("KAPAL ANTRE");
-        pnlCard2.add(lblCardTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, 190, 18));
-
-        lblCardValue2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        lblCardValue2.setForeground(new java.awt.Color(27, 93, 145));
-        lblCardValue2.setText("-");
-        pnlCard2.add(lblCardValue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 34, 190, 35));
-
-        pnlDashboard.add(pnlCard2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 18, 222, 82));
-
-        pnlCard3.setBackground(new java.awt.Color(255, 255, 255));
-        pnlCard3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 231, 239)));
-        pnlCard3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblCardTitle3.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
-        lblCardTitle3.setForeground(new java.awt.Color(105, 121, 140));
-        lblCardTitle3.setText("KAPAL SANDAR");
-        pnlCard3.add(lblCardTitle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, 190, 18));
-
-        lblCardValue3.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        lblCardValue3.setForeground(new java.awt.Color(25, 115, 105));
-        lblCardValue3.setText("-");
-        pnlCard3.add(lblCardValue3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 34, 190, 35));
-
-        pnlDashboard.add(pnlCard3, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 18, 222, 82));
-
-        pnlCard4.setBackground(new java.awt.Color(255, 255, 255));
-        pnlCard4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 231, 239)));
-        pnlCard4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblCardTitle4.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
-        lblCardTitle4.setForeground(new java.awt.Color(105, 121, 140));
-        lblCardTitle4.setText("TOTAL DATA KARGO");
-        pnlCard4.add(lblCardTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, 190, 18));
-
-        lblCardValue4.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        lblCardValue4.setForeground(new java.awt.Color(0, 115, 135));
-        lblCardValue4.setText("-");
-        pnlCard4.add(lblCardValue4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 34, 190, 35));
-
-        pnlDashboard.add(pnlCard4, new org.netbeans.lib.awtextra.AbsoluteConstraints(744, 18, 222, 82));
-
-        lblRecent.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblRecent.setForeground(new java.awt.Color(34, 55, 77));
-        lblRecent.setText("Data Kapal Terbaru");
-        pnlDashboard.add(lblRecent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 600, 25));
-
-        scrollDashboard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 231, 239)));
-
-        tblDashboard.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        tblDashboard.setRowHeight(27);
-        tblDashboard.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID KAPAL", "NAMA KAPAL", "JENIS", "GT", "DRAF", "KEDATANGAN", "STATUS", "DERMAGA", "WAKTU SANDAR"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        scrollDashboard.setViewportView(tblDashboard);
-
-        pnlDashboard.add(scrollDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 152, 950, 390));
-
-        pnlContent.add(pnlDashboard, "card0");
 
         pnlRegister.setBackground(new java.awt.Color(255, 255, 255));
         pnlRegister.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -873,9 +752,107 @@ public class OperatorView extends javax.swing.JFrame {
 
         pnlContent.add(pnlKargo, "card5");
 
+        pnlDashboard.setBackground(new java.awt.Color(246, 248, 251));
+        pnlDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnlCard1.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCard1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 231, 239)));
+        pnlCard1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblCardTitle1.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
+        lblCardTitle1.setForeground(new java.awt.Color(105, 121, 140));
+        lblCardTitle1.setText("TOTAL KAPAL");
+        pnlCard1.add(lblCardTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 18));
+
+        lblCardValue1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lblCardValue1.setForeground(new java.awt.Color(0, 0, 51));
+        lblCardValue1.setText("-");
+        pnlCard1.add(lblCardValue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 190, 35));
+
+        pnlDashboard.add(pnlCard1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 222, 82));
+
+        pnlCard2.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCard2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 231, 239)));
+        pnlCard2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblCardTitle2.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
+        lblCardTitle2.setForeground(new java.awt.Color(105, 121, 140));
+        lblCardTitle2.setText("KAPAL ANTRE");
+        pnlCard2.add(lblCardTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 18));
+
+        lblCardValue2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lblCardValue2.setForeground(new java.awt.Color(27, 93, 145));
+        lblCardValue2.setText("-");
+        pnlCard2.add(lblCardValue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 190, 35));
+
+        pnlDashboard.add(pnlCard2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 222, 82));
+
+        pnlCard3.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCard3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 231, 239)));
+        pnlCard3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblCardTitle3.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
+        lblCardTitle3.setForeground(new java.awt.Color(105, 121, 140));
+        lblCardTitle3.setText("KAPAL SANDAR");
+        pnlCard3.add(lblCardTitle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 18));
+
+        lblCardValue3.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lblCardValue3.setForeground(new java.awt.Color(25, 115, 105));
+        lblCardValue3.setText("-");
+        pnlCard3.add(lblCardValue3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 190, 35));
+
+        pnlDashboard.add(pnlCard3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 222, 82));
+
+        pnlCard4.setBackground(new java.awt.Color(255, 255, 255));
+        pnlCard4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 231, 239)));
+        pnlCard4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblCardTitle4.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
+        lblCardTitle4.setForeground(new java.awt.Color(105, 121, 140));
+        lblCardTitle4.setText("TOTAL DATA KARGO");
+        pnlCard4.add(lblCardTitle4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 190, 18));
+
+        lblCardValue4.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lblCardValue4.setForeground(new java.awt.Color(0, 115, 135));
+        lblCardValue4.setText("-");
+        pnlCard4.add(lblCardValue4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 190, 35));
+
+        pnlDashboard.add(pnlCard4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 222, 82));
+
+        lblRecent.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lblRecent.setForeground(new java.awt.Color(34, 55, 77));
+        lblRecent.setText("Data Kapal Terbaru");
+        pnlDashboard.add(lblRecent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 600, 25));
+
+        scrollDashboard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 231, 239)));
+
+        tblDashboard.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        tblDashboard.setRowHeight(27);
+        tblDashboard.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID KAPAL", "NAMA KAPAL", "JENIS", "GT", "DRAF", "KEDATANGAN", "STATUS", "DERMAGA", "WAKTU SANDAR"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        scrollDashboard.setViewportView(tblDashboard);
+
+        pnlDashboard.add(scrollDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 940, 380));
+
+        pnlContent.add(pnlDashboard, "card0");
+
         pnlMain.add(pnlContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 100, 1001, 640));
 
-        getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 65, 1065, 755));
+        getContentPane().add(pnlMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 1065, 755));
 
         pack();
         setLocationRelativeTo(null);
@@ -1193,10 +1170,8 @@ public class OperatorView extends javax.swing.JFrame {
     private javax.swing.JLabel lblRegisterTitle;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblSandarTitle;
-    private javax.swing.JLabel lblSection;
     private javax.swing.JLabel lblSlotTitle;
-    private javax.swing.JLabel lblSubheading;
-    private javax.swing.JLabel lblWelcome;
+    private view.OperatorPendaftaranForm operatorPendaftaranForm1;
     private javax.swing.JPanel pnlBongkar;
     private javax.swing.JPanel pnlCard1;
     private javax.swing.JPanel pnlCard2;
