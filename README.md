@@ -295,6 +295,8 @@ Program ini menerapkan **library**:
 
 <img width="519" height="612" alt="image" src="https://github.com/user-attachments/assets/e0162ae1-2391-4a25-b9c7-4ff0e1fd982a" />
 
+<img width="611" height="403" alt="image" src="https://github.com/user-attachments/assets/a17a0282-2f01-4b54-8ddc-09a908635079" />
+
 
 ---
 ## 🧱 PENERAPAN OOP (Object-Oriented Programming)
