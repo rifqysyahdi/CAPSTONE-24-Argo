@@ -439,10 +439,10 @@ Operator juga dapat mengubah informasi seperti nama barang dan berat barang sesu
 ---
 
 <details>
-  <summary>📊 <b>1️⃣ Dashboard Admin</b></summary>
+  <summary>📊 <b>1 Dashboard Admin</b></summary>
 
   <p align="center">
-    <img width="783" height="529" alt="Dashboard Admin" src="https://github.com/user-attachments/assets/8d532833-8e7b-4035-bab8-e66a51964ebc" />
+    <img width="1322" height="768" alt="image" src="https://github.com/user-attachments/assets/84eb8e12-8e92-4cf2-9c25-701c9eb10376" />
   </p>
 
   Halaman **Dashboard Admin Argoport System** 
@@ -452,75 +452,75 @@ Operator juga dapat mengubah informasi seperti nama barang dan berat barang sesu
 ---
 
 <details>
-  <summary>👥 <b>2️⃣ Manajemen Akun</b></summary>
+  <summary>👥 <b>2️ Manajemen Data Dermaga</b></summary>
 
   <p align="center">
-    <img width="783" height="528" alt="Manage Account" src="https://github.com/user-attachments/assets/56d2e229-eb86-418c-bed7-6e65bbd1a5d9" />
+    <img width="1600" height="1029" alt="image" src="https://github.com/user-attachments/assets/989bb682-b5fd-4ac7-a324-2c621e165128" />
   </p>
 
-  Halaman **Manajemen Akun** berfungsi untuk mengelola data pengguna dalam sistem HELYA, khususnya akun **Ketua RT** yang memantau dan menindaklanjuti laporan kesehatan di wilayahnya.  
-  Tampilan ini menyediakan fitur pencarian berdasarkan nama, serta tombol untuk menambah, memperbarui, dan menghapus akun pengguna.  
+  Halaman Manajemen **Data Dermaga** digunakan oleh admin untuk menambahkan, melihat, mengubah, dan menghapus data dermaga yang digunakan dalam kegiatan operasional pelabuhan.
 
-  Setiap data ditampilkan dalam tabel berisi:
-  - Nomor akun  
-  - Nama pengguna  
-  - Nomor RT  
-  - Opsi tindakan (Edit / Hapus)  
+Data dermaga ditampilkan dalam tabel yang berisi:
+- ID dermaga
+- Nama dermaga
+- Kapasitas Maksimal(TON)
+- Status dermaga  
+ 
+---
 
-  ---
+<details>
+  <summary>🧾 <b>3️ Manajemen Data Slot Gudang</b></summary>
+
   <p align="center">
-    <img width="986" height="701" alt="Search Account" src="https://github.com/user-attachments/assets/5ed07616-38a8-45e3-8ef9-1a72b09ba6ab" />
+    <img width="1600" height="1029" alt="image" src="https://github.com/user-attachments/assets/25d99f7d-3b18-4299-9a82-06e0bbe1fff2" />
   </p>
-  Admin dapat mencari akun dengan menginput nama akun.
 
-  ---
-  <p align="center">
-    <img width="994" height="697" alt="Add Account" src="https://github.com/user-attachments/assets/1d92fc7a-7286-4830-b2d1-b1cc749c4d4b" />
-  </p>
-  Admin dapat menambahkan akun pengguna baru.
+  Halaman **Manajemen Data Slot Gudang** digunakan oleh admin untuk mengelola data slot penyimpanan barang di gudang. Admin dapat menambahkan, melihat, mengubah, dan menghapus data slot gudang serta menentukan operator yang bertanggung jawab.
 
-  ---
-  <p align="center">
-    <img width="988" height="703" alt="Edit Account" src="https://github.com/user-attachments/assets/25f9f1ff-779e-44c7-b374-512dea5b3ff9" />
-  </p>
-  Admin dapat mengubah data akun pengguna.
-
-  ---
-  <p align="center">
-    <img width="989" height="700" alt="Delete Account" src="https://github.com/user-attachments/assets/5da54832-ef1e-4f73-881f-c54aeaf8c6dc" />
-  </p>
-  Admin dapat menghapus akun pengguna yang telah dibuat.
+Data yang dikelola meliputi:
+- ID slot
+- Kode blok
+- Kapasitas
+- Sisa (M3)
+- ID operator penanggung jawab
+- Status slot
 </details>
 
 ---
 
 <details>
-  <summary>🧾 <b>3️⃣ Manajemen Pengaduan</b></summary>
+  <summary>🧾 <b>4 Tarif Retribusi</b></summary>
 
   <p align="center">
-    <img width="999" height="750" alt="Manage Reports" src="https://github.com/user-attachments/assets/f2ca3667-eae0-4fdb-9b36-ada631b9dfef" />
+    <img width="1600" height="1029" alt="image" src="https://github.com/user-attachments/assets/c36d1963-cba8-460b-bf67-63599869f650" />
+
   </p>
 
-  Halaman **Manajemen Pengaduan** memungkinkan admin melihat seluruh laporan pengaduan dari masyarakat dan fasilitas kesehatan.  
-  Data ditampilkan dalam bentuk tabel dengan informasi seperti:
-  - Nama Pelapor  
-  - Jenis Pengaduan  
-  - Status Penanganan  
-  - Tanggal Laporan  
-  - Opsi Aksi (Lihat / Update / Hapus)
+  Halaman **Manajemen Tarif** digunakan oleh admin untuk melihat, memantau, dan menyimpan informasi tarif yang digunakan dalam perhitungan biaya pelabuhan.
 
-  Fitur pencarian dan filter memudahkan admin untuk mengelompokkan laporan berdasarkan status (*Menunggu, Diproses, Selesai*).  
-  Desain halaman ini membantu admin memantau perkembangan setiap pengaduan dengan cepat dan akurat.
+Informasi tarif yang dikelola meliputi:
+- Tarif tambat kapal per hari
+- Tarif muatan barang per ton
 </details>
 
----
 
 <details>
-  <summary>🚪 <b>4️⃣ Keluar</b></summary>
+  <summary>🧾 <b>5 Billing dan Pendaftaran</b></summary>
 
-  Fitur **Keluar (Logout)** berfungsi untuk mengakhiri sesi admin dan memastikan keamanan akun.  
-  Setelah logout, sistem akan mengarahkan kembali ke halaman **Login**, menjaga agar akses aplikasi tetap aman dan terbatas hanya untuk pengguna yang berwenang.
+  <p align="center">
+    <img width="1322" height="768" alt="image" src="https://github.com/user-attachments/assets/b44511ff-33fe-47bc-8785-67d36162cee6" />
+  </p>
+
+  Halaman Billing dan Pembayaran digunakan oleh admin untuk melihat informasi tagihan dan riwayat pembayaran retribusi dari kapal yang menggunakan layanan tambat di pelabuhan.
+
+Informasi yang ditampilkan meliputi:
+- ID Kapal
+- Nama kapal
+- Status Kapal
+- Total Tagihan (Rp)
+- Status pembayaran
 </details>
+
 
 ---
 ## 📅 **Informasi Tambahan**
